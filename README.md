@@ -12,3 +12,5 @@ Please list your name here so we know you have figured out how to push a
 commit to the Github project.
 
 - Peter Francis (rockretep)
+- Cody Summerson
+- Peter Nelson
