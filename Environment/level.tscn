@@ -8,4 +8,4 @@
 color = Color(0.227451, 0.411765, 0.0862745, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 
-[node name="CharacterBody2D" parent="BackgroundGreen" instance=ExtResource("1_x2hm2")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_x2hm2")]
