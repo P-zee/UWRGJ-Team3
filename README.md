@@ -8,7 +8,7 @@ This will be the one-sentence elevator pitch for our game.
 
 ## Authors
 
-Cody Summerson
-
 Please list your name here so we know you have figured out how to push a
 commit to the Github project.
+
+Cody Summerson
