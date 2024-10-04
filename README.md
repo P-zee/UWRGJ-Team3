@@ -14,3 +14,4 @@ commit to the Github project.
 - Peter Francis (rockretep)
 - Cody Summerson
 - Peter Nelson
+- William (Liam) Halpin
