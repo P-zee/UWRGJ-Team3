@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4c5k1hv4io8d"]
+
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_0d6js"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_0d6js")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_accjw")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-11, 1, -8, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7)
