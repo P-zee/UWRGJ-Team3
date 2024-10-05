@@ -15,3 +15,4 @@ commit to the Github project.
 - Cody Summerson (Tetratoric)
 - Peter Nelson
 - William (Liam) Halpin
+- Maxwell Wang (buh-h)
