@@ -18,7 +18,3 @@ polygon = PackedVector2Array(-11, 1, -8, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_w8wwd")
 maxHealth = 4
-
-[connection signal="died" from="Health" to="." method="_on_health_died"]
-[connection signal="healed" from="Health" to="." method="_on_health_healed"]
-[connection signal="tookDamage" from="Health" to="." method="_on_health_took_damage"]
