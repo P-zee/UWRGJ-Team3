@@ -1,0 +1,129 @@
+[gd_scene load_steps=28 format=3 uid="uid://cvdt15xfk10u6"]
+
+[ext_resource type="Script" path="res://Entities/health.gd" id="1_26ci7"]
+[ext_resource type="Script" path="res://Entities/crab.gd" id="1_kgigq"]
+[ext_resource type="Texture2D" uid="uid://sdyh0w2dritx" path="res://Sprites/Crab God/Walk frames/crab god walk2.png" id="3_ifxpy"]
+[ext_resource type="Texture2D" uid="uid://d4b0n7lbknvmv" path="res://Sprites/Crab God/Attack frames/Left/crab god left1.png" id="3_ivupp"]
+[ext_resource type="Texture2D" uid="uid://dfd8dnjpj8p4l" path="res://Sprites/Crab God/Walk frames/crab god walk3.png" id="4_ltlrr"]
+[ext_resource type="Texture2D" uid="uid://b86u7c2qhf35u" path="res://Sprites/Crab God/Attack frames/Left/crab god left2.png" id="4_masyh"]
+[ext_resource type="Texture2D" uid="uid://mjeewn0uodka" path="res://Sprites/Crab God/Attack frames/Left/crab god left3.png" id="5_io1u7"]
+[ext_resource type="Texture2D" uid="uid://crwluemajsuu" path="res://Sprites/Crab God/Attack frames/Left/crab god left4.png" id="6_7ges2"]
+[ext_resource type="Texture2D" uid="uid://dh82m53uf1o8q" path="res://Sprites/Crab God/Attack frames/Left/crab god left5.png" id="7_wxaq6"]
+[ext_resource type="Texture2D" uid="uid://cvjfxxnang0ys" path="res://Sprites/Crab God/Attack frames/Left/crab god left6.png" id="8_qoeg0"]
+[ext_resource type="Texture2D" uid="uid://cg3c1lmxdtiyf" path="res://Sprites/Crab God/Attack frames/Left/crab god left7.png" id="9_el732"]
+[ext_resource type="Texture2D" uid="uid://dkjrqo0ogaf7f" path="res://Sprites/Crab God/Attack frames/Left/crab god left8.png" id="10_at6qw"]
+[ext_resource type="Texture2D" uid="uid://c4lmjcv5ud1sn" path="res://Sprites/Crab God/Attack frames/Left/crab god left9.png" id="11_j7ced"]
+[ext_resource type="Texture2D" uid="uid://byclm6g1qoctm" path="res://Sprites/Crab God/Attack frames/Left/crab god left10.png" id="12_u15tt"]
+[ext_resource type="Texture2D" uid="uid://jas24odypim6" path="res://Sprites/Crab God/Attack frames/Left/crab god left11.png" id="13_ut6rx"]
+[ext_resource type="Texture2D" uid="uid://die0mu8l114aa" path="res://Sprites/Crab God/Attack frames/Left/crab god left12.png" id="14_8urph"]
+[ext_resource type="Texture2D" uid="uid://kxx81t7cj1oj" path="res://Sprites/Crab God/Attack frames/Left/crab god left13.png" id="15_nmmb2"]
+[ext_resource type="Texture2D" uid="uid://dyj2l5org8x58" path="res://Sprites/Crab God/Attack frames/Left/crab god left14.png" id="16_epxrq"]
+[ext_resource type="Texture2D" uid="uid://cxty5vpancjxk" path="res://Sprites/Crab God/Attack frames/Left/crab god left15.png" id="17_4231k"]
+[ext_resource type="Texture2D" uid="uid://cpwl1bl867wui" path="res://Sprites/Crab God/Attack frames/Left/crab god left16.png" id="18_kxkdj"]
+[ext_resource type="Texture2D" uid="uid://datufi5j6fgfs" path="res://Sprites/Crab God/Attack frames/Left/crab god left17.png" id="19_eqcdk"]
+[ext_resource type="Texture2D" uid="uid://u4fgi1o1hw1w" path="res://Sprites/Crab God/Attack frames/Left/crab god left18.png" id="20_okt5p"]
+[ext_resource type="Texture2D" uid="uid://bba813lmnutve" path="res://Sprites/Crab God/Attack frames/Left/crab god left19.png" id="21_ogg1f"]
+[ext_resource type="Texture2D" uid="uid://c2hnm4gdn3hmn" path="res://Sprites/Crab God/Attack frames/Left/crab god left20.png" id="22_gnbm2"]
+[ext_resource type="Texture2D" uid="uid://bp8yocr4cltdv" path="res://Sprites/Crab God/Attack frames/Left/crab god left21.png" id="23_mu47t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k6ox"]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktge8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ivupp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_masyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_io1u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ges2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wxaq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qoeg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_el732")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_at6qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j7ced")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u15tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ut6rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8urph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nmmb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_epxrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4231k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kxkdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_eqcdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_okt5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ogg1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gnbm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_mu47t")
+}],
+"loop": false,
+"name": &"Collect Food",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ifxpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ltlrr")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 6.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_kgigq")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_26ci7")
+maxHealth = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7k6ox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_ktge8")
+animation = &"Collect Food"
+autoplay = "Walk"

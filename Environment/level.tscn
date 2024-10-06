@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=5 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
 [ext_resource type="Script" path="res://Entities/health.gd" id="2_cyfks"]
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
+[ext_resource type="PackedScene" uid="uid://cvdt15xfk10u6" path="res://Entities/crab.tscn" id="4_1ljs2"]
 
 [node name="Level" type="Node2D"]
 
@@ -19,3 +20,6 @@ maxHealth = 4
 
 [node name="Enemy" parent="." instance=ExtResource("2_s4nmo")]
 position = Vector2(212, 132)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_1ljs2")]
+position = Vector2(611, 355)
