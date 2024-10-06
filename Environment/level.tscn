@@ -17,5 +17,5 @@ position = Vector2(540, 295)
 [node name="Enemy" parent="." instance=ExtResource("2_s4nmo")]
 position = Vector2(212, 132)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("4_1ljs2")]
+[node name="Queen" parent="." instance=ExtResource("4_1ljs2")]
 position = Vector2(611, 355)
