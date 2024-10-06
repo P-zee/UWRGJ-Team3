@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://cvdt15xfk10u6"]
 
 [ext_resource type="Script" path="res://Entities/health.gd" id="1_26ci7"]
-[ext_resource type="Script" path="res://Entities/crab.gd" id="1_kgigq"]
+[ext_resource type="Script" path="res://Entities/queen.gd" id="1_kgigq"]
 [ext_resource type="Texture2D" uid="uid://sdyh0w2dritx" path="res://Sprites/Crab God/Walk frames/crab god walk2.png" id="3_ifxpy"]
 [ext_resource type="Texture2D" uid="uid://d4b0n7lbknvmv" path="res://Sprites/Crab God/Attack frames/Left/crab god left1.png" id="3_ivupp"]
 [ext_resource type="Texture2D" uid="uid://dfd8dnjpj8p4l" path="res://Sprites/Crab God/Walk frames/crab god walk3.png" id="4_ltlrr"]

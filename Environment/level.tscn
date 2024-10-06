@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
-[ext_resource type="PackedScene" uid="uid://cvdt15xfk10u6" path="res://Entities/crab.tscn" id="4_1ljs2"]
+[ext_resource type="PackedScene" uid="uid://cvdt15xfk10u6" path="res://Entities/queen.tscn" id="4_1ljs2"]
 
 [node name="Level" type="Node2D"]
 
