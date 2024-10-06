@@ -1,18 +1,14 @@
 extends CharacterBody2D
 
-signal tookDamage(damage : int)
-signal healed(health : int)
-signal died()
-
-@onready var health: Node = $Health
 
 const SPEED = 150.0
+
+@onready var health: Node = $Health
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		print(health.health)
-
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -24,15 +20,3 @@ func _physics_process(delta: float) -> void:
 	#	velocity = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-
-func _on_health_died() -> void:
-	died.emit()
-
-
-func _on_health_healed(health: int) -> void:
-	healed.emit(health)
-
-
-func _on_health_took_damage(damage: int) -> void:
-	tookDamage.emit(damage)
