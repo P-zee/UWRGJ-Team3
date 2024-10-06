@@ -16,3 +16,4 @@ commit to the Github project.
 - Peter Nelson
 - William (Liam) Halpin
 - Maxwell Wang (buh-h)
+- Ambrose Shu
