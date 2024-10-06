@@ -4,7 +4,7 @@ extends CharacterBody2D
 # Crab's speed
 @export var speed : float  = 30
 # If the crab is currently running after a piece of food
-var targetingFood : bool = false
+var targetState : int =0 #0=targetting food, 1 = targetting player, 2 = moving randomly
 # If the crab is currently collecting a piece of food
 var collectingFood : bool = false
 # Position the crab wants to go
@@ -16,23 +16,25 @@ var collectRange : float = 10
 var updateWalkRange : float = 2
 # Animation
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var player: CharacterBody2D = %Player
 
 func _ready() -> void:
 	getGoalPosition()
 
 
 func _physics_process(delta: float) -> void:
-	if(targetingFood):
+	if(targetState==0):
 		if(position.distance_to(goalPosition)<collectRange):
 			animatedSprite.play("Collect Food")
 			animatedSprite.animation_finished.connect(collectFood)
 			collectingFood=true
+	elif(targetState==1):
+		getGoalPosition()
 	else:
 		if(position.distance_to(goalPosition)<updateWalkRange):
 			getGoalPosition()
-	if(!collectingFood):
-		transform.origin+=(goalPosition-position).normalized() * delta * speed
+	if(!collectingFood && goalPosition != position):
+		position+=(goalPosition-position).normalized() * delta * speed
 	#print("test")
 	
 	move_and_slide()
@@ -50,14 +52,16 @@ func collectFood() -> void:
 func getGoalPosition() -> void:
 	# Go to Food
 	if(false):
-		pass
+		targetState = 0
 	# Go to Player
-	elif(false):
-		pass
+	elif(player!=null):
+		goalPosition=player.position
+		targetState=1
 	# Pick Random Direction
 	else:
 		var randomPoint : Vector2 = position + Vector2(randf_range(-randomRange,randomRange), randf_range(-randomRange,randomRange))
 		# ENFORCE MAP BOUNDARY CONDITIONS
+		targetState = 2
 		goalPosition = randomPoint
 	
 	rotation=(Vector2.UP).angle_to(goalPosition-position)
