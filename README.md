@@ -17,3 +17,4 @@ commit to the Github project.
 - William (Liam) Halpin
 - Maxwell Wang (buh-h)
 - Ambrose Shu
+- Simeon Barfuss
