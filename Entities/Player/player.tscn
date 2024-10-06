@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4c5k1hv4io8d"]
+[gd_scene load_steps=4 format=3 uid="uid://b4c5k1hv4io8d"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_0d6js"]
+[ext_resource type="Script" path="res://Entities/health.gd" id="2_w8wwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
 
@@ -13,3 +14,7 @@ shape = SubResource("CircleShape2D_accjw")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-11, 1, -8, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_w8wwd")
+maxHealth = 4
