@@ -111,7 +111,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Crab" type="CharacterBody2D"]
+[node name="Queen" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_kgigq")
 
