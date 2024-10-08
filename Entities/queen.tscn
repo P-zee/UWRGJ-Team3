@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cvdt15xfk10u6"]
+[gd_scene load_steps=33 format=3 uid="uid://cvdt15xfk10u6"]
 
 [ext_resource type="Script" path="res://Entities/health.gd" id="1_26ci7"]
 [ext_resource type="Script" path="res://Entities/queen.gd" id="1_kgigq"]
@@ -25,6 +25,11 @@
 [ext_resource type="Texture2D" uid="uid://bba813lmnutve" path="res://Sprites/Crab God/Attack frames/Left/crab god left19.png" id="21_ogg1f"]
 [ext_resource type="Texture2D" uid="uid://c2hnm4gdn3hmn" path="res://Sprites/Crab God/Attack frames/Left/crab god left20.png" id="22_gnbm2"]
 [ext_resource type="Texture2D" uid="uid://bp8yocr4cltdv" path="res://Sprites/Crab God/Attack frames/Left/crab god left21.png" id="23_mu47t"]
+[ext_resource type="Texture2D" uid="uid://bg1xaomeyuisf" path="res://Sprites/Crab God/Hit/crab god hit1.png" id="24_2s0y2"]
+[ext_resource type="Texture2D" uid="uid://b5yy0ngeclj3n" path="res://Sprites/Crab God/Hit/crab god hit2.png" id="25_nldkg"]
+[ext_resource type="Texture2D" uid="uid://b6gyk76g8duot" path="res://Sprites/Crab God/Hit/crab god hit3.png" id="26_233an"]
+[ext_resource type="Texture2D" uid="uid://svevyldoki55" path="res://Sprites/Crab God/Hit/crab god hit4.png" id="27_fst34"]
+[ext_resource type="Texture2D" uid="uid://boqp25kq467u3" path="res://Sprites/Crab God/Hit/crab god hit5.png" id="28_4lvgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7k6ox"]
 radius = 16.0
@@ -101,6 +106,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("24_2s0y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nldkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_233an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_fst34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4lvgg")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_ifxpy")
 }, {
 "duration": 1.0,
@@ -125,5 +150,9 @@ shape = SubResource("CircleShape2D_7k6ox")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ktge8")
-animation = &"Collect Food"
+animation = &"Hit"
 autoplay = "Walk"
+frame = 4
+frame_progress = 1.0
+
+[connection signal="tookDamage" from="Health" to="." method="hit"]

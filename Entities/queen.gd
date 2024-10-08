@@ -7,6 +7,8 @@ extends CharacterBody2D
 var targetState : int =0 #0=targetting food, 1 = targetting player, 2 = moving randomly
 # If the crab is currently collecting a piece of food
 var collectingFood : bool = false
+# If the crab is getting hit
+var gettingHit : bool = false
 # Position the crab wants to go
 var goalPosition : Vector2 = Vector2.ZERO
 # Random walk size
@@ -17,8 +19,10 @@ var updateWalkRange : float = 2
 # Animation
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
+@onready var health: Node = $Health
 
 func _ready() -> void:
+	#health.took
 	getGoalPosition()
 
 
@@ -33,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if(position.distance_to(goalPosition)<updateWalkRange):
 			getGoalPosition()
-	if(!collectingFood && goalPosition != position):
+	if(!collectingFood && goalPosition != position && !gettingHit):
 		position+=(goalPosition-position).normalized() * delta * speed
 	#print("test")
 	
@@ -47,6 +51,18 @@ func collectFood() -> void:
 	# Destroy Food
 	# Add Score
 	# Whatever Else
+
+func hit(damage: int) -> void:
+	if(collectingFood):
+		return
+	animatedSprite.play("Hit")
+	animatedSprite.animation_finished.connect(hitDone)
+	gettingHit=true
+
+func hitDone() -> void:
+	animatedSprite.play("Walk")
+	animatedSprite.animation_finished.disconnect(hitDone)
+	gettingHit=false
 
 
 func getGoalPosition() -> void:
