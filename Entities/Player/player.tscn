@@ -34,3 +34,4 @@ shape = SubResource("CircleShape2D_cqihu")
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
 [connection signal="tookDamage" from="Health" to="." method="_on_health_took_damage"]
+[connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]

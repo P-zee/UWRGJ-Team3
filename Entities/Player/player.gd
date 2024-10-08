@@ -36,3 +36,10 @@ func _on_health_healed(damage: int) -> void:
 
 func _on_health_took_damage(damage: int) -> void:
 	tookDamage.emit(damage)
+
+
+func _on_melee_hitbox_body_entered(body: Node2D) -> void:
+	if "take_player_damage" in body:
+		# Deal damage to the body we hit
+		body.take_player_damage(5)
+		print(body.to_string() + " has taken 5 damage.")

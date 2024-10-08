@@ -8,6 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ix5lk"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Boid"]]
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_d58ur")
 
@@ -26,6 +27,7 @@ shape = SubResource("CircleShape2D_ix5lk")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_kcwsl")
+maxHealth = 10
 
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
 [connection signal="body_exited" from="flock_sensor" to="." method="_on_flock_sensor_body_exited"]

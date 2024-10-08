@@ -111,8 +111,13 @@ func wrap_screen():
 	
 
 
+func take_player_damage(damage: int):
+	$Health.takeDamage(damage)
+
+
 func _on_health_died() -> void:
 	died.emit()
+	queue_free()
 
 
 func _on_health_healed(damage: int) -> void:
