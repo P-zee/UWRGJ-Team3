@@ -156,4 +156,5 @@ frame = 4
 frame_progress = 1.0
 
 [connection signal="died" from="Health" to="." method="queenDied"]
+[connection signal="healed" from="Health" to="." method="_on_health_healed"]
 [connection signal="tookDamage" from="Health" to="." method="hit"]

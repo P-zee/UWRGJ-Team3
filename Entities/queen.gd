@@ -22,6 +22,8 @@ var updateWalkRange : float = 2
 @onready var health: Node = $Health
 
 signal died()
+signal healed(damage: int)
+signal tookDamage(damage: int)
 
 func _ready() -> void:
 	getGoalPosition()
@@ -61,6 +63,7 @@ func hit(damage: int) -> void:
 	animatedSprite.play("Hit")
 	animatedSprite.animation_finished.connect(hitDone)
 	gettingHit=true
+	tookDamage.emit(damage)
 
 func hitDone() -> void:
 	animatedSprite.play("Walk")
@@ -84,3 +87,7 @@ func getGoalPosition() -> void:
 		goalPosition = randomPoint
 	
 	rotation=(Vector2.UP).angle_to(goalPosition-position)
+
+
+func _on_health_healed(damage: int) -> void:
+	healed.emit(damage)
