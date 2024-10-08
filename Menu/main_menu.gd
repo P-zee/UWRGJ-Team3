@@ -39,7 +39,7 @@ func _on_start_mouse_exited() -> void:
 	
 func _unhandled_key_input(event):
 	if event.is_pressed():
-		if $"MarginContainer/HboxContainer/Menu Options/Start".has_focus() != true:
+		if $"MarginContainer/HboxContainer/Menu Options/Start".has_focus() != true and $"MarginContainer/HboxContainer/Menu Options/How to play".has_focus() != true and $"MarginContainer/HboxContainer/Menu Options/Quit".has_focus() != true:
 			$"MarginContainer/HboxContainer/Menu Options/Start".grab_focus()
 
 
