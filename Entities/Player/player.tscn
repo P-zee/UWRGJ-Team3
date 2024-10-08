@@ -13,7 +13,7 @@ script = ExtResource("1_0d6js")
 shape = SubResource("CircleShape2D_accjw")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-11, 1, -8, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7)
+polygon = PackedVector2Array(-10, 0, -7, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7)
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_w8wwd")
