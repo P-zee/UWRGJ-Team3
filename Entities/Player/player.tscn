@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqihu"]
-radius = 17.0
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -28,7 +28,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
-position = Vector2(12, 0)
+position = Vector2(30, 0)
 shape = SubResource("CircleShape2D_cqihu")
 
 [node name="MeleeCooldown" type="Timer" parent="."]
