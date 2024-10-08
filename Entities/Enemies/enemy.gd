@@ -33,7 +33,7 @@ func _on_flock_sensor_body_exited(body):
 	flock.remove_at(flock.find(body))
 	flock_size = flock.size()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player:
 		target = player.global_position
 	
