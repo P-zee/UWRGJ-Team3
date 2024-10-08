@@ -21,10 +21,13 @@ var updateWalkRange : float = 2
 @onready var player: CharacterBody2D = %Player
 @onready var health: Node = $Health
 
+signal died()
+
 func _ready() -> void:
-	#health.took
 	getGoalPosition()
 
+func queenDied():
+	died.emit()
 
 func _physics_process(delta: float) -> void:
 	if(targetState==0):
