@@ -1,6 +1,6 @@
 extends Node
 
-@export var maxHealth : float:
+@export var maxHealth : int:
 	set(newMaxHealth):
 		maxHealth = newMaxHealth
 		if(health > maxHealth):
@@ -8,10 +8,10 @@ extends Node
 	get():
 		return maxHealth
 	
-var health : float
+var health : int
 
-signal tookDamage(damage : float)
-signal healed(damage : float)
+signal tookDamage(damage : int)
+signal healed(damage : int)
 signal died()
 
 # Called when the node enters the scene tree for the first time.
@@ -22,19 +22,19 @@ func _ready() -> void:
 	#healed.connect(healMessage)
 
 	
-func takeDamage(damage : float) -> void:
+func takeDamage(damage : int) -> void:
 	health -= damage
 	tookDamage.emit(damage)
 	if(health <= 0):
 		died.emit()
 		
-func heal(damage: float) -> void:
+func heal(damage: int) -> void:
 	health = min(maxHealth, health + damage)
 	healed.emit(damage)
 
 #func dieMessage() -> void:
 #	print("the player has died")
-#func healMessage(damage: float)->void:
+#func healMessage(damage: int)->void:
 #	print("the player has been healed the following health")
 #	print(damage)
 	
