@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4c5k1hv4io8d"]
+[gd_scene load_steps=5 format=3 uid="uid://b4c5k1hv4io8d"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_0d6js"]
 [ext_resource type="Script" path="res://Entities/health.gd" id="2_w8wwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqihu"]
+radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -18,6 +21,15 @@ polygon = PackedVector2Array(-10, 0, -7, -7, 0, -10, 7, -7, 10, 0, 7, 7, 0, 10, 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_w8wwd")
 maxHealth = 4
+
+[node name="MeleeHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_cqihu")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
