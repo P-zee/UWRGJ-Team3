@@ -15,6 +15,10 @@ extends CharacterBody2D
 
 @onready var player: CharacterBody2D = %Player
 
+signal died()
+signal healed(damage: int)
+signal tookDamage(damage: int)
+
 var target: Vector2
 var flock = []
 var flock_size: int = 0
@@ -105,3 +109,15 @@ func wrap_screen():
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
 	
+
+
+func _on_health_died() -> void:
+	died.emit()
+
+
+func _on_health_healed(damage: int) -> void:
+	healed.emit(damage)
+
+
+func _on_health_took_damage(damage: int) -> void:
+	tookDamage.emit(damage)
