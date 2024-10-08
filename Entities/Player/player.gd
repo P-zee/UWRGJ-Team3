@@ -47,6 +47,7 @@ func swing_melee(damage: int):
 	if $MeleeCooldown.is_stopped():
 		$MeleeCooldown.start()
 		# Here, put logic for swing animation
+		print("Swing!")
 		# Now, get all enemies in the melee hitbox
 		for body in $MeleeHitbox.get_overlapping_bodies():
 			# If this body has a method called take_player_damage, then

@@ -32,7 +32,7 @@ position = Vector2(12, 0)
 shape = SubResource("CircleShape2D_cqihu")
 
 [node name="MeleeCooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.7
 one_shot = true
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
