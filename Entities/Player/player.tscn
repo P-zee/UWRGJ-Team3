@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqihu"]
-radius = 20.0
+radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -28,10 +28,11 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
-position = Vector2(10, 0)
+position = Vector2(12, 0)
 shape = SubResource("CircleShape2D_cqihu")
 
 [node name="MeleeCooldown" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
