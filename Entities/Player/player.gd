@@ -9,12 +9,12 @@ signal died()
 const SPEED = 150.0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		print(health.health)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -30,8 +30,8 @@ func _on_health_died() -> void:
 	died.emit()
 
 
-func _on_health_healed(health: int) -> void:
-	healed.emit(health)
+func _on_health_healed(damage: int) -> void:
+	healed.emit(damage)
 
 
 func _on_health_took_damage(damage: int) -> void:
