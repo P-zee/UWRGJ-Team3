@@ -16,8 +16,8 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = %Player
 
 signal died()
-signal healed(damage: int)
-signal tookDamage(damage: int)
+signal healed(damage: float)
+signal tookDamage(damage: float)
 
 var target: Vector2
 var flock = []
@@ -111,7 +111,7 @@ func wrap_screen():
 	
 
 
-func take_player_damage(damage: int):
+func take_player_damage(damage: float):
 	$Health.takeDamage(damage)
 
 
@@ -120,9 +120,9 @@ func _on_health_died() -> void:
 	queue_free()
 
 
-func _on_health_healed(damage: int) -> void:
+func _on_health_healed(damage: float) -> void:
 	healed.emit(damage)
 
 
-func _on_health_took_damage(damage: int) -> void:
+func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)

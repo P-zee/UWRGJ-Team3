@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
-signal tookDamage(damage : int)
-signal healed(health : int)
+signal tookDamage(damage : float)
+signal healed(health : float)
 signal died()
 
 @onready var health: Node = $Health
 
 const SPEED = 150.0
 
-var melee_damage = 5
+@export var melee_damage = 5.0
 
 
 func _process(_delta: float) -> void:
@@ -34,15 +34,15 @@ func _on_health_died() -> void:
 	died.emit()
 
 
-func _on_health_healed(damage: int) -> void:
+func _on_health_healed(damage: float) -> void:
 	healed.emit(damage)
 
 
-func _on_health_took_damage(damage: int) -> void:
+func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
 
 # Damages any bodies that have the method take_player_damage
-func swing_melee(damage: int):
+func swing_melee(damage: float):
 	# First, make sure melee swing is off of cooldown
 	if $MeleeCooldown.is_stopped():
 		$MeleeCooldown.start()

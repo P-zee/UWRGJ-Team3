@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_ix5lk")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_kcwsl")
-maxHealth = 10
+maxHealth = 10.0
 
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
 [connection signal="body_exited" from="flock_sensor" to="." method="_on_flock_sensor_body_exited"]
