@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cvdt15xfk10u6"]
+[gd_scene load_steps=33 format=3 uid="uid://dlvg4lwqj0onb"]
 
 [ext_resource type="Script" path="res://Entities/health.gd" id="1_26ci7"]
 [ext_resource type="Script" path="res://Entities/queen.gd" id="1_kgigq"]

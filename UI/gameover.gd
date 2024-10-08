@@ -1,19 +1,19 @@
-extends Node2D
-
-# Number of food eaten
-var score = 0;
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-# Called when the queen dies
-func _on_queen_died() -> void:
+# Called when retry button is pressed
+func _on_retry_pressed() -> void:
+	pass # Replace with function body.
+
+# Called when quit button is pressed
+func _on_quit_pressed() -> void:
 	pass # Replace with function body.
