@@ -8,6 +8,8 @@ signal died()
 
 const SPEED = 150.0
 
+var melee_damage = 5
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -15,6 +17,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	# Face towards the mouse
+	look_at(get_global_mouse_position())
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -37,9 +41,17 @@ func _on_health_healed(damage: int) -> void:
 func _on_health_took_damage(damage: int) -> void:
 	tookDamage.emit(damage)
 
-
-func _on_melee_hitbox_body_entered(body: Node2D) -> void:
-	if "take_player_damage" in body:
-		# Deal damage to the body we hit
-		body.take_player_damage(5)
-		print(body.to_string() + " has taken 5 damage.")
+# Damages any bodies that have the method take_player_damage
+func swing_melee(damage: int):
+	# First, make sure melee swing is off of cooldown
+	if $MeleeCooldown.is_stopped():
+		$MeleeCooldown.start()
+		# Here, put logic for swing animation
+		# Now, get all enemies in the melee hitbox
+		for body in $MeleeHitbox.get_overlapping_bodies():
+			# If this body has a method called take_player_damage, then
+			#  call it with the amount of damage to deal.
+			if "take_player_damage" in body:
+				# Deal damage to the body we hit
+				body.take_player_damage(damage)
+				print(body.to_string() + " has taken " + damage + " damage.")
