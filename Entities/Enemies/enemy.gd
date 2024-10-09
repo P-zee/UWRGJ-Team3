@@ -19,6 +19,8 @@ signal died()
 signal healed(damage: float)
 signal tookDamage(damage: float)
 
+@export var enemy_damage = 1.0
+
 var target: Vector2
 var flock = []
 var flock_size: int = 0
@@ -115,6 +117,32 @@ func take_player_damage(damage: float):
 	$Health.takeDamage(damage)
 
 
+# Damages any bodies that have the method take_enemy_damage
+# This is almost identical to the method in player.gd
+func swing_melee(damage: float):
+	# First, make sure melee swing is off of cooldown
+	if $MeleeCooldown.is_stopped():
+		$MeleeCooldown.start()
+		# Here, put logic for swing animation
+		# Now, get all enemies in the melee hitbox
+		for body in $MeleeHitbox.get_overlapping_bodies():
+			# If this body has a method called take_enemy_damage, then
+			#  call it with the amount of damage to deal.
+			if "take_enemy_damage" in body:
+				# Deal damage to the body we hit
+				body.take_enemy_damage(damage)
+
+# Tests whether this enemy can hit something
+func target_in_range() -> bool:
+	var in_range = false
+	for body in $MeleeHitbox.get_overlapping_bodies():
+		# If this body has a method called take_enemy_damage, then
+		#  call it with the amount of damage to deal.
+		if "take_enemy_damage" in body:
+			in_range = true
+	return in_range
+
+
 func _on_health_died() -> void:
 	died.emit()
 	queue_free()
@@ -126,3 +154,13 @@ func _on_health_healed(damage: float) -> void:
 
 func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
+
+# When a body comes within swinging range, try to hit it.
+func _on_melee_hitbox_body_entered(body: Node2D) -> void:
+	swing_melee(enemy_damage)
+
+# Once the cooldown is up, test if this enemy can hit something again.
+# This makes the enemy keep swinging at something as long as it's in range.
+func _on_melee_cooldown_timeout() -> void:
+	if target_in_range():
+		swing_melee(enemy_damage)

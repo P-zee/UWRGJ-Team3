@@ -20,7 +20,7 @@ polygon = PackedVector2Array(-10, 0, -7, -7, 0, -10, 6, -6, 15, 0, 6, 6, 0, 10, 
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_w8wwd")
-maxHealth = 4.0
+maxHealth = 10.0
 
 [node name="MeleeHitbox" type="Area2D" parent="."]
 collision_layer = 0

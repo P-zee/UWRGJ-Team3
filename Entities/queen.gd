@@ -92,3 +92,10 @@ func getGoalPosition() -> void:
 
 func _on_health_healed(damage: int) -> void:
 	healed.emit(damage)
+
+
+func take_player_damage(damage: float):
+	$Health.takeDamage(damage)
+
+func take_enemy_damage(damage: float):
+	$Health.takeDamage(damage)
