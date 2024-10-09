@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwqyj54fwcktv"]
 
-[ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_i4o08"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_t6ojr"]
-[ext_resource type="Texture2D" uid="uid://bviadjyjtet26" path="res://Menu/Start.png" id="3_a3ag0"]
-[ext_resource type="Texture2D" uid="uid://cps0x47fim18n" path="res://Menu/Start_pressed.png" id="4_0cr3d"]
-[ext_resource type="Texture2D" uid="uid://dmaku3uj7kysd" path="res://Menu/How_to_play.png" id="5_1ic6i"]
-[ext_resource type="Texture2D" uid="uid://44kfqrpt7e3m" path="res://Menu/How_to_play_pressed.png" id="6_5d6q6"]
-[ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="7_w4asm"]
-[ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="8_i7hbr"]
+[ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_6asgu"]
+[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_wl183"]
+[ext_resource type="Texture2D" uid="uid://bviadjyjtet26" path="res://Menu/Start.png" id="3_iavpi"]
+[ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="3_voo23"]
+[ext_resource type="Texture2D" uid="uid://cps0x47fim18n" path="res://Menu/Start_pressed.png" id="4_mg0vb"]
+[ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_x6bq3"]
+[ext_resource type="Texture2D" uid="uid://dmaku3uj7kysd" path="res://Menu/How_to_play.png" id="5_yauss"]
+[ext_resource type="Texture2D" uid="uid://44kfqrpt7e3m" path="res://Menu/How_to_play_pressed.png" id="6_lens7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i4o08")
+script = ExtResource("1_6asgu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_t6ojr")
+texture = ExtResource("2_wl183")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,22 +52,22 @@ theme_override_constants/separation = 10
 [node name="Start" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
-texture_normal = ExtResource("3_a3ag0")
-texture_pressed = ExtResource("4_0cr3d")
-texture_focused = ExtResource("4_0cr3d")
+texture_normal = ExtResource("3_iavpi")
+texture_pressed = ExtResource("4_mg0vb")
+texture_focused = ExtResource("4_mg0vb")
 
 [node name="How to play" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
 layout_mode = 2
-texture_normal = ExtResource("5_1ic6i")
-texture_pressed = ExtResource("6_5d6q6")
-texture_focused = ExtResource("6_5d6q6")
+texture_normal = ExtResource("5_yauss")
+texture_pressed = ExtResource("6_lens7")
+texture_focused = ExtResource("6_lens7")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
-texture_normal = ExtResource("7_w4asm")
-texture_pressed = ExtResource("8_i7hbr")
-texture_focused = ExtResource("8_i7hbr")
+texture_normal = ExtResource("3_voo23")
+texture_pressed = ExtResource("4_x6bq3")
+texture_focused = ExtResource("4_x6bq3")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HboxContainer"]
 layout_mode = 2
