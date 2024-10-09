@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
 [ext_resource type="Script" path="res://Environment/score.gd" id="6_f05u4"]
-[ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://Menu/bar-under.png" id="7_rypkq"]
-[ext_resource type="Texture2D" uid="uid://2jfw4fkwium3" path="res://Menu/bar-over.png" id="8_q103e"]
+[ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://UI/bar-under.png" id="7_rypkq"]
+[ext_resource type="Texture2D" uid="uid://2jfw4fkwium3" path="res://UI/bar-over.png" id="8_q103e"]
 [ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_bvavv"]
 [ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_ftign"]
 
