@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=11 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
 [ext_resource type="Script" path="res://Environment/score.gd" id="6_f05u4"]
+[ext_resource type="Texture2D" uid="uid://rbs2xaq8w4rp" path="res://UI/bar-under.png" id="7_a5coh"]
+[ext_resource type="Texture2D" uid="uid://dw4naud3xadip" path="res://UI/bar-over.png" id="8_g247n"]
+[ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_qqhmx"]
+[ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_yf5m1"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_5vrx4")
@@ -35,6 +39,7 @@ position = Vector2(244, 196)
 position = Vector2(1017, 229)
 
 [node name="Queen" parent="." instance=ExtResource("4_1ljs2")]
+unique_name_in_owner = true
 position = Vector2(611, 355)
 
 [node name="Score" type="RichTextLabel" parent="."]
@@ -43,5 +48,42 @@ offset_bottom = 40.0
 text = "Score:"
 script = ExtResource("6_f05u4")
 
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
+offset_top = 32.0
+offset_right = 400.0
+offset_bottom = 55.0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("7_a5coh")
+texture_over = ExtResource("8_g247n")
+texture_progress = ExtResource("7_a5coh")
+tint_under = Color(0.505882, 0.137255, 0.121569, 1)
+tint_over = Color(0.843137, 0.298039, 0.184314, 1)
+tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
+script = ExtResource("9_qqhmx")
+
+[node name="QueenHealthBar" type="TextureProgressBar" parent="."]
+offset_top = 60.0
+offset_right = 400.0
+offset_bottom = 83.0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("7_a5coh")
+texture_over = ExtResource("8_g247n")
+texture_progress = ExtResource("7_a5coh")
+tint_under = Color(0.505882, 0.137255, 0.121569, 1)
+tint_over = Color(0.843137, 0.298039, 0.184314, 1)
+tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
+script = ExtResource("10_yf5m1")
+
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]
+[connection signal="foodCollected" from="Queen" to="Score" method="_on_queen_food_collected"]
