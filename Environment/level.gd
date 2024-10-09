@@ -3,6 +3,8 @@ extends Node2D
 # Number of food eaten
 var score = 0;
 
+# Number of food needed to win
+const SCORE_TO_WIN = 5;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,4 +23,7 @@ func _on_queen_died() -> void:
 
 func _on_queen_food_collected() -> void:
 	score += 1
-	pass # Replace with function body.
+	# Check if the score is enough for a win
+	if (score >= SCORE_TO_WIN):
+		get_tree().change_scene_to_file("res://GameOver/game_over.tscn")
+	
