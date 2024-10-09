@@ -17,3 +17,8 @@ func _process(_delta: float) -> void:
 # Called when the queen dies
 func _on_queen_died() -> void:
 	pass # Replace with function body.
+
+
+func _on_queen_food_collected() -> void:
+	score += 1
+	pass # Replace with function body.

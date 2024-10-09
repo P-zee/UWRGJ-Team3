@@ -44,3 +44,4 @@ text = "Score:"
 script = ExtResource("6_f05u4")
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
+[connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]
