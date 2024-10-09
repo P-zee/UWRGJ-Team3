@@ -22,7 +22,7 @@ func _on_queen_died() -> void:
 
 
 func _on_queen_food_collected() -> void:
-	score += 1
+	score += 100
 	# Check if the score is enough for a win
 	if (score >= SCORE_TO_WIN):
 		get_tree().change_scene_to_file("res://GameOver/game_over.tscn")

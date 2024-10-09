@@ -42,13 +42,25 @@ position = Vector2(1017, 229)
 unique_name_in_owner = true
 position = Vector2(611, 355)
 
-[node name="Score" type="RichTextLabel" parent="."]
-offset_right = 166.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Score" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_right = 83.0
 offset_bottom = 40.0
-text = "Score:"
+grow_horizontal = 2
+text = "100"
 script = ExtResource("6_f05u4")
 
-[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 offset_top = 40.0
 offset_right = 649.0
 offset_bottom = 80.0
@@ -66,7 +78,7 @@ tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
 
-[node name="QueenHealthBar" type="TextureProgressBar" parent="."]
+[node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
 offset_top = 88.0
 offset_right = 648.0
 offset_bottom = 128.0
