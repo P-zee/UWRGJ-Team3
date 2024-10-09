@@ -2,9 +2,9 @@ extends Node
 
 @export var maxHealth : float:
 	set(newMaxHealth):
+		var percentage : float = health / maxHealth
 		maxHealth = newMaxHealth
-		if(health > maxHealth):
-			health = maxHealth
+		health = maxHealth*percentage
 	get():
 		return maxHealth
 	
