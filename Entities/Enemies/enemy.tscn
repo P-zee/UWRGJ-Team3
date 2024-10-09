@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://budo70qh7vqap"]
+[gd_scene load_steps=6 format=3 uid="uid://budo70qh7vqap"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_d58ur"]
 [ext_resource type="Script" path="res://Entities/health.gd" id="2_kcwsl"]
@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcytp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ix5lk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be6k8"]
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["Boid"]]
 collision_layer = 3
@@ -29,8 +32,20 @@ shape = SubResource("CircleShape2D_ix5lk")
 script = ExtResource("2_kcwsl")
 maxHealth = 10.0
 
+[node name="MeleeHitbox" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
+shape = SubResource("CircleShape2D_be6k8")
+
+[node name="MeleeCooldown" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
 [connection signal="body_exited" from="flock_sensor" to="." method="_on_flock_sensor_body_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
 [connection signal="tookDamage" from="Health" to="." method="_on_health_took_damage"]
+[connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]
+[connection signal="timeout" from="MeleeCooldown" to="." method="_on_melee_cooldown_timeout"]

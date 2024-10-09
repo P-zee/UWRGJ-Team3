@@ -61,6 +61,7 @@ text = "100"
 script = ExtResource("6_f05u4")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
+layout_mode = 0
 offset_top = 40.0
 offset_right = 649.0
 offset_bottom = 80.0
@@ -79,6 +80,7 @@ tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
 
 [node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
+layout_mode = 0
 offset_top = 88.0
 offset_right = 648.0
 offset_bottom = 128.0

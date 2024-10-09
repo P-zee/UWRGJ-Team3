@@ -41,6 +41,10 @@ func _on_health_healed(damage: float) -> void:
 func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
 
+func take_enemy_damage(damage: float):
+	print("Player took enemy damage")
+	$Health.takeDamage(damage)
+
 # Damages any bodies that have the method take_player_damage
 func swing_melee(damage: float):
 	# First, make sure melee swing is off of cooldown
