@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=13 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
 [ext_resource type="Script" path="res://Environment/score.gd" id="6_f05u4"]
+[ext_resource type="FontFile" uid="uid://b4bqhoynjo107" path="res://UI/PressStart2P-Regular.ttf" id="6_y2qon"]
 [ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://UI/bar-under.png" id="7_rypkq"]
+[ext_resource type="Texture2D" uid="uid://b5205wxu7gfp" path="res://Menu/image.png" id="8_ncvhl"]
 [ext_resource type="Texture2D" uid="uid://2jfw4fkwium3" path="res://UI/bar-over.png" id="8_q103e"]
 [ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_bvavv"]
 [ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_ftign"]
@@ -15,6 +17,7 @@
 script = ExtResource("1_5vrx4")
 
 [node name="BackgroundGreen" type="Polygon2D" parent="."]
+z_index = -10
 texture_repeat = 2
 position = Vector2(-5251, -2753)
 scale = Vector2(10, 10)
@@ -48,22 +51,23 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Score" type="RichTextLabel" parent="UI"]
+[node name="TextureRect" type="TextureRect" parent="UI"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -83.0
-offset_right = 83.0
-offset_bottom = 40.0
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
 grow_horizontal = 2
-text = "100"
-script = ExtResource("6_f05u4")
+texture = ExtResource("8_ncvhl")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
-offset_top = 40.0
+layout_mode = 0
+offset_top = 81.0
 offset_right = 649.0
-offset_bottom = 80.0
+offset_bottom = 121.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 3
@@ -79,9 +83,10 @@ tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
 
 [node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
-offset_top = 88.0
+layout_mode = 0
+offset_top = 129.0
 offset_right = 648.0
-offset_bottom = 128.0
+offset_bottom = 169.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 3
@@ -95,6 +100,23 @@ tint_under = Color(0.505882, 0.137255, 0.121569, 1)
 tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("10_ftign")
+
+[node name="Score2" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_top = 15.0
+offset_right = 83.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.505882, 0.137255, 0.121569, 1)
+theme_override_fonts/normal_font = ExtResource("6_y2qon")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]100[/center]"
+script = ExtResource("6_f05u4")
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]
