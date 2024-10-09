@@ -95,7 +95,6 @@ func _on_health_healed(damage: int) -> void:
 
 
 func take_player_damage(damage: float):
-	print("Queen took player damage!")
 	$Health.takeDamage(damage)
 
 func take_enemy_damage(damage: float):

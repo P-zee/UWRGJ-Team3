@@ -42,7 +42,6 @@ func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
 
 func take_enemy_damage(damage: float):
-	print("Player took enemy damage")
 	$Health.takeDamage(damage)
 
 # Damages any bodies that have the method take_player_damage
@@ -51,7 +50,6 @@ func swing_melee(damage: float):
 	if $MeleeCooldown.is_stopped():
 		$MeleeCooldown.start()
 		# Here, put logic for swing animation
-		print("Swing!")
 		# Now, get all enemies in the melee hitbox
 		for body in $MeleeHitbox.get_overlapping_bodies():
 			# If this body has a method called take_player_damage, then
@@ -59,4 +57,3 @@ func swing_melee(damage: float):
 			if "take_player_damage" in body:
 				# Deal damage to the body we hit
 				body.take_player_damage(damage)
-				print(body.to_string() + " has taken " + str(damage) + " damage.")
