@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwqyj54fwcktv"]
+[gd_scene load_steps=9 format=3 uid="uid://cdg7d3t3tqw70"]
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_6asgu"]
 [ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_wl183"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmaku3uj7kysd" path="res://Menu/How_to_play.png" id="5_yauss"]
 [ext_resource type="Texture2D" uid="uid://44kfqrpt7e3m" path="res://Menu/How_to_play_pressed.png" id="6_lens7"]
 
-[node name="Menu" type="Control"]
+[node name="Menu4" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

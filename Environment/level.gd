@@ -22,4 +22,3 @@ func _on_queen_died() -> void:
 func _on_queen_food_collected() -> void:
 	score += 1
 	pass # Replace with function body.
-

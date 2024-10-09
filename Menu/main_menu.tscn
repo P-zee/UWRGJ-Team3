@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://44kfqrpt7e3m" path="res://Menu/How_to_play_pressed.png" id="7_ha4mf"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="9_qr7tv"]
 
-[node name="Menu" type="Control"]
+[node name="Menu3" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +51,6 @@ theme_override_constants/separation = 10
 
 [node name="Start" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
 layout_mode = 2
-size_flags_horizontal = 0
 focus_neighbor_top = NodePath("../Quit")
 texture_normal = ExtResource("4_jwh32")
 texture_pressed = ExtResource("7_8x1rq")
@@ -65,7 +64,6 @@ texture_focused = ExtResource("7_ha4mf")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
 layout_mode = 2
-size_flags_horizontal = 0
 focus_neighbor_bottom = NodePath("../Start")
 texture_normal = ExtResource("6_mycuf")
 texture_pressed = ExtResource("9_qr7tv")
