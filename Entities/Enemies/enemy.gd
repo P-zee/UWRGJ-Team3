@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var max_speed: = 50.0
+@export var max_speed: = 80.0
 @export var min_speed: = 30.0
 @export var target_force: = 8.0
 @export var cohesion: = 2.0
@@ -10,38 +10,48 @@ extends CharacterBody2D
 @export var avoid_distance: = 25
 @export var max_flock_size: = 15
 @export var screen_avoid_force: = 10.0
+# min distance to start targeting the queen
+@export var queen_target_distance: = 100.0 
+# min distance to ignore the player
+@export var player_ignore_distance: = 200.0
+
+@export var enemy_damage = 1.0
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
-
-@onready var player: CharacterBody2D = %Player
+var player: CharacterBody2D
+var queen: CharacterBody2D
 
 signal died()
 signal healed(damage: float)
 signal tookDamage(damage: float)
-
-@export var enemy_damage = 1.0
 
 var target: Vector2
 var flock = []
 var flock_size: int = 0
 
 func _ready():
+	player = get_tree().current_scene.get_node("%Player")
+	queen = get_tree().current_scene.get_node("%Queen")
+	if not player:
+		push_error("Player not found!")
+	if not queen:
+		push_error("Queen not found!")
 	$flock_sensor/sensor_shape.shape.radius = view_distance
 	randomize()
 	velocity = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * max_speed
 
 func _on_flock_sensor_body_entered(body):
-	if self != body and body.is_in_group("Boid"):
+	if self != body and body.is_in_group("Enemy"):
 		flock.append(body)
 		flock_size = flock.size()
 		
 func _on_flock_sensor_body_exited(body):
-	flock.remove_at(flock.find(body))
-	flock_size = flock.size()
+	if self != body and body.is_in_group("Enemy"):
+		flock.remove_at(flock.find(body))
+		flock_size = flock.size()
 
 func _physics_process(_delta):
-	if player:
-		target = player.global_position
+	update_target()
 	
 	var screen_avoid_vector = Vector2.ZERO
 	screen_avoid_vector = avoid_screen_edge() * screen_avoid_force
@@ -59,8 +69,18 @@ func _physics_process(_delta):
 	velocity = (velocity + acceleration).limit_length(max_speed)
 	if velocity.length() <= min_speed:
 		velocity = (velocity * min_speed).limit_length(max_speed)
-		
+	
+	rotation = Vector2.RIGHT.angle_to(target_vector)
 	move_and_slide()
+	
+func update_target():
+	var distance_to_queen = global_position.distance_to(queen.global_position)
+	var distance_to_player = global_position.distance_to(player.global_position)
+	
+	if distance_to_queen <= queen_target_distance and distance_to_player >= player_ignore_distance:
+		target = queen.global_position
+	else:
+		target = player.global_position
 
 func process_flock():
 	var cohesion_vector: = Vector2()
@@ -142,15 +162,13 @@ func target_in_range() -> bool:
 			in_range = true
 	return in_range
 
-
 func _on_health_died() -> void:
+	# drop food
 	died.emit()
 	queue_free()
 
-
 func _on_health_healed(damage: float) -> void:
 	healed.emit(damage)
-
 
 func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)

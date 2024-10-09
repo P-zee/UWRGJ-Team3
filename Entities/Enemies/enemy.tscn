@@ -10,10 +10,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_be6k8"]
 radius = 11.0
 
-[node name="Enemy" type="CharacterBody2D" groups=["Boid"]]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_d58ur")
+player_ignore_distance = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fcytp")
@@ -23,6 +24,7 @@ color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(0, -10, 6, -5, 17, 0, 6, 5, 0, 10, -7, 7, -10, 0, -7, -7)
 
 [node name="flock_sensor" type="Area2D" parent="."]
+collision_layer = 0
 monitorable = false
 
 [node name="sensor_shape" type="CollisionShape2D" parent="flock_sensor"]
@@ -37,6 +39,7 @@ collision_layer = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
+position = Vector2(11, 0)
 shape = SubResource("CircleShape2D_be6k8")
 
 [node name="MeleeCooldown" type="Timer" parent="."]

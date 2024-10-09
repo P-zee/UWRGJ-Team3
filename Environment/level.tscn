@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=14 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
 [ext_resource type="Texture2D" uid="uid://cn4clgx8y67rx" path="res://Sprites/MoonBackground.png" id="2_7bwr5"]
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
+[ext_resource type="Script" path="res://Entities/Enemies/enemy_spawner.gd" id="5_mdata"]
 [ext_resource type="Script" path="res://Environment/score.gd" id="6_f05u4"]
 [ext_resource type="FontFile" uid="uid://b4bqhoynjo107" path="res://UI/PressStart2P-Regular.ttf" id="6_y2qon"]
 [ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://UI/bar-under.png" id="7_rypkq"]
@@ -29,21 +30,13 @@ polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 unique_name_in_owner = true
 position = Vector2(540, 295)
 
-[node name="Enemy" parent="." instance=ExtResource("2_s4nmo")]
-position = Vector2(212, 132)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_s4nmo")]
-position = Vector2(174, 190)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_s4nmo")]
-position = Vector2(244, 196)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_s4nmo")]
-position = Vector2(1017, 229)
-
 [node name="Queen" parent="." instance=ExtResource("4_1ljs2")]
 unique_name_in_owner = true
 position = Vector2(611, 355)
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("5_mdata")
+enemy_scene = ExtResource("2_s4nmo")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
