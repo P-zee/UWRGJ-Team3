@@ -24,6 +24,7 @@ var updateWalkRange : float = 2
 signal died()
 signal healed(damage: int)
 signal tookDamage(damage: int)
+signal foodCollected()
 
 func _ready() -> void:
 	getGoalPosition()
@@ -54,7 +55,7 @@ func collectFood() -> void:
 	animatedSprite.animation_finished.disconnect(collectFood)
 	collectingFood=false
 	# Destroy Food
-	# Add Score
+	foodCollected.emit()
 	# Whatever Else
 
 func hit(damage: int) -> void:
