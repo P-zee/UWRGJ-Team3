@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,8 +21,21 @@ func _on_quit_pressed() -> void:
 
 
 func _on_retry_mouse_entered() -> void:
-	pass # Replace with function body.
+	$"MarginContainer/HBoxContainer/Buttons/Retry".grab_focus()
 
 
 func _on_quit_mouse_entered() -> void:
-	pass # Replace with function body.
+	$"MarginContainer/HBoxContainer/Buttons/Quit".grab_focus()
+
+
+func _on_retry_mouse_exited() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Retry".release_focus()
+
+
+func _on_quit_mouse_exited() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Quit".release_focus()
+
+func _unhandled_key_input(event):
+	if event.is_pressed():
+		if $"MarginContainer/HBoxContainer/Buttons/Retry".has_focus() != true and $"MarginContainer/HBoxContainer/Buttons/Quit".has_focus() != true:
+			$"MarginContainer/HBoxContainer/Buttons/Retry".grab_focus()

@@ -1,20 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfci1j0qndqp"]
+[gd_scene load_steps=7 format=3 uid="uid://dwc7eqoxiw1xr"]
 
-[ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_yb552"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_5v035"]
-[ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="3_epfrk"]
-[ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_u0afi"]
-[ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_eppg4"]
-[ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_qk4pc"]
+[ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_og03k"]
+[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_wviq1"]
+[ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_shpbi"]
+[ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_1d48x"]
+[ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="5_usopq"]
+[ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="6_f3kq4"]
 
-[node name="GameOver" type="Control"]
+[node name="GameWin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yb552")
+script = ExtResource("1_og03k")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5v035")
+texture = ExtResource("2_wviq1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,15 +48,15 @@ theme_override_constants/separation = 10
 
 [node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
-texture_normal = ExtResource("3_u0afi")
-texture_pressed = ExtResource("4_eppg4")
-texture_focused = ExtResource("4_eppg4")
+texture_normal = ExtResource("3_shpbi")
+texture_pressed = ExtResource("4_1d48x")
+texture_focused = ExtResource("4_1d48x")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
-texture_normal = ExtResource("3_epfrk")
-texture_pressed = ExtResource("4_qk4pc")
-texture_focused = ExtResource("4_qk4pc")
+texture_normal = ExtResource("5_usopq")
+texture_pressed = ExtResource("6_f3kq4")
+texture_focused = ExtResource("6_f3kq4")
 
 [node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

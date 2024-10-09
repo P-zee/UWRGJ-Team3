@@ -25,5 +25,5 @@ func _on_queen_food_collected() -> void:
 	score += 1
 	# Check if the score is enough for a win
 	if (score >= SCORE_TO_WIN):
-		get_tree().change_scene_to_file("res://GameOver/gameover.tscn")
+		get_tree().change_scene_to_file("res://GameOver/gamewin.tscn")
 	
