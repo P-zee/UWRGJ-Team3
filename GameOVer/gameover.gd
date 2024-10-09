@@ -18,3 +18,11 @@ func _on_retry_pressed() -> void:
 # Called when quit button is pressed
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_retry_mouse_entered() -> void:
+	pass # Replace with function body.
+
+
+func _on_quit_mouse_entered() -> void:
+	pass # Replace with function body.

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_eppg4"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_qk4pc"]
 
-[node name="Control" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,5 +58,7 @@ texture_normal = ExtResource("3_epfrk")
 texture_pressed = ExtResource("4_qk4pc")
 texture_focused = ExtResource("4_qk4pc")
 
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
