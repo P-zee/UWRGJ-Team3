@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=11 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://rbs2xaq8w4rp" path="res://UI/bar-under.png" id="7_a5coh"]
 [ext_resource type="Texture2D" uid="uid://dw4naud3xadip" path="res://UI/bar-over.png" id="8_g247n"]
 [ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_qqhmx"]
+[ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_yf5m1"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_5vrx4")
@@ -38,6 +39,7 @@ position = Vector2(244, 196)
 position = Vector2(1017, 229)
 
 [node name="Queen" parent="." instance=ExtResource("4_1ljs2")]
+unique_name_in_owner = true
 position = Vector2(611, 355)
 
 [node name="Score" type="RichTextLabel" parent="."]
@@ -80,6 +82,7 @@ texture_progress = ExtResource("7_a5coh")
 tint_under = Color(0.505882, 0.137255, 0.121569, 1)
 tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
+script = ExtResource("10_yf5m1")
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]
