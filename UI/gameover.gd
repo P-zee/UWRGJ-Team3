@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 
 # Called when retry button is pressed
 func _on_retry_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Environment/level.tscn")
 
 # Called when quit button is pressed
 func _on_quit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
