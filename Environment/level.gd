@@ -16,4 +16,4 @@ func _process(_delta: float) -> void:
 
 # Called when the queen dies
 func _on_queen_died() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://GameOver/game_over.tscn")
