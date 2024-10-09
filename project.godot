@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 Level="*res://Environment/level.gd"
 
-[display]
-
-window/stretch/mode="viewport"
-
 [global_group]
 
 Boid=""
