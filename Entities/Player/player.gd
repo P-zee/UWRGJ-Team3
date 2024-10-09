@@ -6,9 +6,15 @@ signal died()
 
 @onready var health: Node = $Health
 
+var gettingHit: bool = false
+var attacking : bool = false
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+
 const SPEED = 150.0
 
 @export var melee_damage = 5.0
+
+var animationDirection : String = "Down"
 
 
 func _process(_delta: float) -> void:
@@ -18,21 +24,43 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	# Face towards the mouse
-	look_at(get_global_mouse_position())
+	$MeleeHitbox.look_at(get_global_mouse_position())
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	#print(direction)
 	#if direction:
-	velocity = direction * SPEED
+	if(!attacking):
+		velocity = direction * SPEED
+		if(!gettingHit):
+			animatedSprite.play("Walk" + animationDirection)
+		updateDirection(direction)
+		move_and_slide()
+		
 	#else:
 	#	velocity = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
 
 
 func _on_health_died() -> void:
 	died.emit()
+	
 
+func updateDirection(direction : Vector2) -> void:
+	if(direction == Vector2.ZERO):
+		return
+	if(abs(direction.x)<.9):
+		if(direction.y<0):
+			animationDirection = "Up"
+		else:
+			animationDirection = "Down"
+	else:
+		if(direction.x>0):
+			animationDirection = "Right"
+		else:
+			animationDirection = "Left"
+	#print(animationDirection)
 
 func _on_health_healed(damage: float) -> void:
 	healed.emit(damage)
@@ -40,15 +68,36 @@ func _on_health_healed(damage: float) -> void:
 
 func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
+	print("took some damage")
+
 
 func take_enemy_damage(damage: float):
 	$Health.takeDamage(damage)
+	animatedSprite.play("Hit" + animationDirection)
+	animatedSprite.animation_finished.connect(hitFinished)
+	gettingHit=true
+
+func attackFinished():
+	animatedSprite.animation_finished.disconnect(attackFinished)
+	animatedSprite.play("Walk" + animationDirection)
+	attacking=false
+	
+func hitFinished():
+	gettingHit=false
+	animatedSprite.play("Walk" + animationDirection)
+	print("hit finished")
+	animatedSprite.animation_finished.disconnect(hitFinished)
+
 
 # Damages any bodies that have the method take_player_damage
 func swing_melee(damage: float):
 	# First, make sure melee swing is off of cooldown
 	if $MeleeCooldown.is_stopped():
 		$MeleeCooldown.start()
+		animatedSprite.animation_finished.connect(attackFinished)
+		animatedSprite.play("Attack" + animationDirection)
+		attacking=true
+		#print("Attack"+animationDirection)
 		# Here, put logic for swing animation
 		# Now, get all enemies in the melee hitbox
 		for body in $MeleeHitbox.get_overlapping_bodies():
