@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qfci1j0qndqp"]
+[gd_scene load_steps=7 format=3 uid="uid://qfci1j0qndqp"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_yb552"]
 [ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_5v035"]
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="3_epfrk"]
+[ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_u0afi"]
+[ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_eppg4"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_qk4pc"]
 
 [node name="Control" type="Control"]
@@ -46,6 +48,9 @@ theme_override_constants/separation = 10
 
 [node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("3_u0afi")
+texture_pressed = ExtResource("4_eppg4")
+texture_focused = ExtResource("4_eppg4")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
