@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w5bba1pqjbn"
-path="res://.godot/imported/Retry_pressed.png-e7da857e8ccab71f7f3652728cebaae3.ctex"
+uid="uid://2jfw4fkwium3"
+path="res://.godot/imported/bar-over.png-6c3a0a7ca5a282bc1b32883bb264dfc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameOVer/Retry_pressed.png"
-dest_files=["res://.godot/imported/Retry_pressed.png-e7da857e8ccab71f7f3652728cebaae3.ctex"]
+source_file="res://Menu/bar-over.png"
+dest_files=["res://.godot/imported/bar-over.png-6c3a0a7ca5a282bc1b32883bb264dfc2.ctex"]
 
 [params]
 
