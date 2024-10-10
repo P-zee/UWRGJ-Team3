@@ -58,9 +58,8 @@ texture = ExtResource("8_ncvhl")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 layout_mode = 0
-offset_top = 81.0
-offset_right = 649.0
-offset_bottom = 121.0
+offset_right = 120.0
+offset_bottom = 7.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 3
@@ -74,6 +73,7 @@ tint_under = Color(0.505882, 0.137255, 0.121569, 1)
 tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
+offset = Vector2(0, -30)
 
 [node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
 layout_mode = 0
