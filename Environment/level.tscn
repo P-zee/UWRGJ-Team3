@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=15 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://2jfw4fkwium3" path="res://UI/bar-over.png" id="8_q103e"]
 [ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_bvavv"]
 [ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_ftign"]
+[ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="14_wobt4"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_5vrx4")
@@ -105,6 +106,12 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]100[/center]"
 script = ExtResource("6_f05u4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_wobt4")
+autoplay = true
+max_distance = 50000.0
+attenuation = 1.23114e-05
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]

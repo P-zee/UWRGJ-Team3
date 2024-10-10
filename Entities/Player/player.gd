@@ -98,7 +98,7 @@ func _on_health_took_damage(damage: float) -> void:
 
 func take_enemy_damage(damage: float):
 	$Health.takeDamage(damage)
-	if(!respawning):
+	if(!respawning && !gettingHit):
 		animatedSprite.play("Hit" + animationDirection)
 		animatedSprite.animation_finished.connect(hitFinished)
 		gettingHit=true
@@ -121,7 +121,7 @@ func swing_melee(damage: float):
 	if $MeleeCooldown.is_stopped() && !respawning:
 		$MeleeCooldown.start()
 		animatedSprite.animation_finished.connect(attackFinished)
-		updateDirection(get_global_mouse_position() - position)
+		updateDirection((get_global_mouse_position() - position).normalized())
 		animatedSprite.play("Attack" + animationDirection)
 		attacking=true
 		#print("Attack"+animationDirection)
