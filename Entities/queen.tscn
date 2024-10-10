@@ -152,10 +152,8 @@ shape = SubResource("CircleShape2D_7k6ox")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ktge8")
-animation = &"Hit"
+animation = &"Collect Food"
 autoplay = "Walk"
-frame = 4
-frame_progress = 1.0
 
 [connection signal="died" from="Health" to="." method="queenDied"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]

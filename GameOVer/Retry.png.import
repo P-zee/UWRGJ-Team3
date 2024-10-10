@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfigw706b8f4p"
-path="res://.godot/imported/Retry.png-663d27ae7b46eb1dcb9a2b0c9b0931e7.ctex"
+path="res://.godot/imported/Retry.png-98df829bc36304fa51da1278c8c66170.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameOVer/Retry.png"
-dest_files=["res://.godot/imported/Retry.png-663d27ae7b46eb1dcb9a2b0c9b0931e7.ctex"]
+source_file="res://GameOver/Retry.png"
+dest_files=["res://.godot/imported/Retry.png-98df829bc36304fa51da1278c8c66170.ctex"]
 
 [params]
 

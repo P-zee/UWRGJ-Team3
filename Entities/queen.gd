@@ -14,12 +14,13 @@ var goalPosition : Vector2 = Vector2.ZERO
 # Random walk size
 var randomRange : float = 100
 # Dictate distance threshold for the crab to reach the goal destination
-var collectRange : float = 10
+var collectRange : float = 50
 var updateWalkRange : float = 2
 # Animation
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
 @onready var health: Node = $Health
+var currentFood : Node = null
 
 signal died()
 signal healed(damage: int)
@@ -34,8 +35,12 @@ func queenDied():
 
 func _physics_process(delta: float) -> void:
 	if(targetState==0):
-		if(position.distance_to(goalPosition)<collectRange):
+		if(currentFood==null):
+			getGoalPosition()
+			
+		elif(position.distance_to(goalPosition)<collectRange && !collectingFood):
 			animatedSprite.play("Collect Food")
+			#print("hi")
 			animatedSprite.animation_finished.connect(collectFood)
 			collectingFood=true
 	elif(targetState==1):
@@ -50,11 +55,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func collectFood() -> void:
-	getGoalPosition()
-	animatedSprite.play("Walk")
+	#getGoalPosition()
 	animatedSprite.animation_finished.disconnect(collectFood)
+	animatedSprite.play("Walk")
 	collectingFood=false
-	# Destroy Food
+	currentFood.queue_free() 
+	currentFood=null
+	targetState=2
+	getGoalPosition()
+	#print("co")
 	foodCollected.emit()
 	# Whatever Else
 
@@ -75,10 +84,14 @@ func hitDone() -> void:
 
 func getGoalPosition() -> void:
 	# Go to Food
-	if(false):
+	#print()
+	if($"../Food" != null):
 		targetState = 0
+		currentFood=$"../Food"
+		goalPosition=currentFood.position
+		#print(currentFood)
 	# Go to Player
-	elif(player!=null):
+	elif(false && player!=null):
 		goalPosition=player.position
 		targetState=1
 	# Pick Random Direction
