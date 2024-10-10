@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=17 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="9_bvavv"]
 [ext_resource type="Script" path="res://Environment/queen_health_bar.gd" id="10_ftign"]
 [ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="14_wobt4"]
+[ext_resource type="PackedScene" uid="uid://b2yrjlexgqqvi" path="res://addons/audio-manager/AudioManager.tscn" id="15_x2i1p"]
+[ext_resource type="AudioStream" uid="uid://cunocf1xhfdmh" path="res://Audio/DM-CGS-05.wav" id="16_q6dal"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_5vrx4")
@@ -112,6 +114,11 @@ stream = ExtResource("14_wobt4")
 autoplay = true
 max_distance = 50000.0
 attenuation = 1.23114e-05
+
+[node name="AudioManager" parent="." instance=ExtResource("15_x2i1p")]
+unique_name_in_owner = true
+num_sfx_players = 20
+effects = Array[Resource]([ExtResource("16_q6dal")])
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]

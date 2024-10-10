@@ -22,6 +22,7 @@ func play_fx(play_sfx_name : String) -> void:
 	for i in effects.size():
 		var sound = effects[i]
 		var name = sound.resource_path.get_file().get_basename()
+		#print(name)
 		if name == play_sfx_name:
 			var player = effects_container.get_child(0)
 			player.stream = sound

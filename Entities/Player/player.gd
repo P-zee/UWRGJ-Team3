@@ -123,6 +123,7 @@ func swing_melee(damage: float):
 		animatedSprite.animation_finished.connect(attackFinished)
 		updateDirection((get_global_mouse_position() - position).normalized())
 		animatedSprite.play("Attack" + animationDirection)
+		%AudioManager.play_fx("DM-CGS-05")
 		attacking=true
 		#print("Attack"+animationDirection)
 		# Here, put logic for swing animation
