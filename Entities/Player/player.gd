@@ -8,14 +8,18 @@ signal died()
 
 var gettingHit: bool = false
 var attacking : bool = false
+var respawning : bool = false
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var queen: CharacterBody2D = %Queen
+@onready var collision_shape_2d: CollisionShape2D = $MeleeHitbox/CollisionShape2D
 
 const SPEED = 150.0
+
+@export var baseMaxHealth:float = 20
 
 @export var melee_damage = 5.0
 
 var animationDirection : String = "Down"
-
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("fire_melee"):
@@ -25,12 +29,27 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	# Face towards the mouse
 	$MeleeHitbox.look_at(get_global_mouse_position())
+	#print((queen.position-position).length())
+	health.maxHealth=min(baseMaxHealth,baseMaxHealth*100/(queen.position-position).length())
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	#print(direction)
 	#if direction:
+	
+	if(respawning):
+		updateDirection((queen.position-position).normalized())
+		velocity = (queen.position-position).normalized() * SPEED*2
+		animatedSprite.play("Shelless")
+		move_and_slide()
+		if((queen.position-position).length()<70):
+			health.heal(baseMaxHealth)
+			collision_shape_2d.disabled=false
+			respawning=false
+		return
+	
+	
 	if(!attacking):
 		velocity = direction * SPEED
 		if(!gettingHit):
@@ -45,6 +64,8 @@ func _physics_process(_delta: float) -> void:
 
 func _on_health_died() -> void:
 	died.emit()
+	respawning=true
+	collision_shape_2d.disabled=true
 	
 
 func updateDirection(direction : Vector2) -> void:
@@ -68,14 +89,15 @@ func _on_health_healed(damage: float) -> void:
 
 func _on_health_took_damage(damage: float) -> void:
 	tookDamage.emit(damage)
-	print("took some damage")
+	#print("took some damage")
 
 
 func take_enemy_damage(damage: float):
 	$Health.takeDamage(damage)
-	animatedSprite.play("Hit" + animationDirection)
-	animatedSprite.animation_finished.connect(hitFinished)
-	gettingHit=true
+	if(!respawning):
+		animatedSprite.play("Hit" + animationDirection)
+		animatedSprite.animation_finished.connect(hitFinished)
+		gettingHit=true
 
 func attackFinished():
 	animatedSprite.animation_finished.disconnect(attackFinished)
@@ -85,14 +107,14 @@ func attackFinished():
 func hitFinished():
 	gettingHit=false
 	animatedSprite.play("Walk" + animationDirection)
-	print("hit finished")
+	#print("hit finished")
 	animatedSprite.animation_finished.disconnect(hitFinished)
 
 
 # Damages any bodies that have the method take_player_damage
 func swing_melee(damage: float):
 	# First, make sure melee swing is off of cooldown
-	if $MeleeCooldown.is_stopped():
+	if $MeleeCooldown.is_stopped() && !respawning:
 		$MeleeCooldown.start()
 		animatedSprite.animation_finished.connect(attackFinished)
 		updateDirection(get_global_mouse_position() - position)
