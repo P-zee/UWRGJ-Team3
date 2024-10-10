@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn4clgx8y67rx"
-path="res://.godot/imported/MoonBackground.png-fe435e14a69b31c715928abde61993f3.ctex"
+uid="uid://djoaxtfcmhoss"
+path="res://.godot/imported/MoonBackground.png-6de482603a1b9d75491694c5ca75fa33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/MoonBackground.png"
-dest_files=["res://.godot/imported/MoonBackground.png-fe435e14a69b31c715928abde61993f3.ctex"]
+source_file="res://MoonBackground.png"
+dest_files=["res://.godot/imported/MoonBackground.png-6de482603a1b9d75491694c5ca75fa33.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
-[ext_resource type="Texture2D" uid="uid://cn4clgx8y67rx" path="res://Sprites/MoonBackground.png" id="2_7bwr5"]
+[ext_resource type="Texture2D" uid="uid://djoaxtfcmhoss" path="res://MoonBackground.png" id="2_654to"]
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
 [ext_resource type="Script" path="res://Entities/Enemies/enemy_spawner.gd" id="5_mdata"]
@@ -25,7 +25,7 @@ z_index = -10
 texture_repeat = 2
 position = Vector2(-22177, -12886)
 scale = Vector2(40, 40)
-texture = ExtResource("2_7bwr5")
+texture = ExtResource("2_654to")
 texture_scale = Vector2(20, 20)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 

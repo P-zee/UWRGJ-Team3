@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da3v31tyit3wu"
-path="res://.godot/imported/You_win.png-fadb657933fbe568f83b4decd95b679f.ctex"
+path="res://.godot/imported/You_win.png-3f6972af142157bea092f3a1543e9c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameOVer/You_win.png"
-dest_files=["res://.godot/imported/You_win.png-fadb657933fbe568f83b4decd95b679f.ctex"]
+source_file="res://GameOver/You_win.png"
+dest_files=["res://.godot/imported/You_win.png-3f6972af142157bea092f3a1543e9c3d.ctex"]
 
 [params]
 
