@@ -53,8 +53,8 @@ func _on_flock_sensor_body_exited(body):
 func _physics_process(_delta):
 	update_target()
 	
-	var screen_avoid_vector = Vector2.ZERO
-	screen_avoid_vector = avoid_screen_edge() * screen_avoid_force
+	#var screen_avoid_vector = Vector2.ZERO
+	#screen_avoid_vector = avoid_screen_edge() * screen_avoid_force
 
 	var vectors = process_flock()
 	
@@ -62,7 +62,7 @@ func _physics_process(_delta):
 	var align_vector = vectors[1] * alignment
 	var separation_vector = vectors[2] * separation
 
-	var acceleration = align_vector + cohesion_vector + separation_vector + screen_avoid_vector
+	var acceleration = align_vector + cohesion_vector + separation_vector
 	var target_vector = global_position.direction_to(target)
 	acceleration += target_vector * target_force
 	
