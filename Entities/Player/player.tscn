@@ -301,6 +301,8 @@ sprite_frames = SubResource("SpriteFrames_ej60f")
 animation = &"Shelless"
 autoplay = "WalkDown"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
 [connection signal="tookDamage" from="Health" to="." method="_on_health_took_damage"]
