@@ -61,10 +61,11 @@ func collectFood() -> void:
 func hit(damage: int) -> void:
 	if(collectingFood):
 		return
-	animatedSprite.play("Hit")
-	animatedSprite.animation_finished.connect(hitDone)
-	gettingHit=true
 	tookDamage.emit(damage)
+	if(!gettingHit):
+		animatedSprite.animation_finished.connect(hitDone)
+		animatedSprite.play("Hit")
+		gettingHit=true
 
 func hitDone() -> void:
 	animatedSprite.play("Walk")
