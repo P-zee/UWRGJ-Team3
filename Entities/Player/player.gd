@@ -95,6 +95,7 @@ func swing_melee(damage: float):
 	if $MeleeCooldown.is_stopped():
 		$MeleeCooldown.start()
 		animatedSprite.animation_finished.connect(attackFinished)
+		updateDirection(get_global_mouse_position() - position)
 		animatedSprite.play("Attack" + animationDirection)
 		attacking=true
 		#print("Attack"+animationDirection)
