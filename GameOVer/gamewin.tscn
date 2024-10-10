@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwc7eqoxiw1xr"]
+[gd_scene load_steps=8 format=3 uid="uid://dwc7eqoxiw1xr"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_og03k"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_wviq1"]
+[ext_resource type="Texture2D" uid="uid://cn4clgx8y67rx" path="res://Sprites/MoonBackground.png" id="2_apwr8"]
 [ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_shpbi"]
 [ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_1d48x"]
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="5_usopq"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="6_f3kq4"]
+[ext_resource type="Texture2D" uid="uid://da3v31tyit3wu" path="res://GameOver/You_win.png" id="7_08o4d"]
 
 [node name="GameWin" type="Control"]
 layout_mode = 3
@@ -23,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wviq1")
+texture = ExtResource("2_apwr8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -46,6 +47,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/Buttons/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_08o4d")
+stretch_mode = 2
+
 [node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("3_shpbi")
@@ -57,19 +72,6 @@ layout_mode = 2
 texture_normal = ExtResource("5_usopq")
 texture_pressed = ExtResource("6_f3kq4")
 texture_focused = ExtResource("6_f3kq4")
-
-[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/TextContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-stretch_mode = 2
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]

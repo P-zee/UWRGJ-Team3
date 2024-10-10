@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfci1j0qndqp"]
+[gd_scene load_steps=8 format=3 uid="uid://qfci1j0qndqp"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_yb552"]
 [ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_5v035"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_u0afi"]
 [ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_eppg4"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_qk4pc"]
+[ext_resource type="Texture2D" uid="uid://bsg41mevtbr65" path="res://GameOver/Game_over.png" id="7_oonnh"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -46,6 +47,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/Buttons/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_oonnh")
+stretch_mode = 2
+
 [node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("3_u0afi")
@@ -57,19 +72,6 @@ layout_mode = 2
 texture_normal = ExtResource("3_epfrk")
 texture_pressed = ExtResource("4_qk4pc")
 texture_focused = ExtResource("4_qk4pc")
-
-[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/TextContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-stretch_mode = 2
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
