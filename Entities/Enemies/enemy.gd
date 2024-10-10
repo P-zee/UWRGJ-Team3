@@ -17,6 +17,9 @@ extends CharacterBody2D
 
 @export var enemy_damage = 1.0
 
+@export var food_drop_chance: float = 0.5
+@export var food_scene: PackedScene
+
 @onready var screen_size: Vector2 = get_viewport_rect().size
 var player: CharacterBody2D
 var queen: CharacterBody2D
@@ -163,7 +166,10 @@ func target_in_range() -> bool:
 	return in_range
 
 func _on_health_died() -> void:
-	# drop food
+	if randf() < food_drop_chance and food_scene:
+		var dropped_entity = food_scene.instantiate()
+		get_parent().add_child(dropped_entity)
+		dropped_entity.global_position = global_position
 	died.emit()
 	queue_free()
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://budo70qh7vqap"]
+[gd_scene load_steps=7 format=3 uid="uid://budo70qh7vqap"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/enemy.gd" id="1_d58ur"]
+[ext_resource type="PackedScene" uid="uid://noca4xg48uum" path="res://Entities/Food.tscn" id="2_h5rj2"]
 [ext_resource type="Script" path="res://Entities/health.gd" id="2_kcwsl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcytp"]
@@ -15,6 +16,7 @@ collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_d58ur")
 player_ignore_distance = 350.0
+food_scene = ExtResource("2_h5rj2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fcytp")
