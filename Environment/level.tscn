@@ -38,26 +38,7 @@ position = Vector2(611, 355)
 script = ExtResource("5_mdata")
 enemy_scene = ExtResource("2_s4nmo")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="TextureRect" type="TextureRect" parent="UI"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-texture = ExtResource("8_ncvhl")
-
-[node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
-layout_mode = 0
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
 offset_right = 120.0
 offset_bottom = 7.0
 value = 50.0
@@ -75,8 +56,7 @@ tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
 offset = Vector2(0, -30)
 
-[node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
-layout_mode = 0
+[node name="QueenHealthBar" type="TextureProgressBar" parent="."]
 offset_top = 129.0
 offset_right = 150.0
 offset_bottom = 138.0
@@ -95,7 +75,27 @@ tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("10_ftign")
 offset = Vector2(0, -50)
 
-[node name="Score2" type="RichTextLabel" parent="UI"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+texture = ExtResource("8_ncvhl")
+
+[node name="Score2" type="RichTextLabel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
