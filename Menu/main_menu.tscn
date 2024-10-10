@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca5482l503gpa"]
+[gd_scene load_steps=10 format=3 uid="uid://ca5482l503gpa"]
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_30o5r"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_qmcu0"]
+[ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_jg08h"]
+[ext_resource type="Texture2D" uid="uid://bm6a6tp24adg0" path="res://Menu/Title.png" id="3_deqfv"]
 [ext_resource type="Texture2D" uid="uid://bviadjyjtet26" path="res://Menu/Start.png" id="4_jwh32"]
 [ext_resource type="Texture2D" uid="uid://dmaku3uj7kysd" path="res://Menu/How_to_play.png" id="5_kvv2f"]
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="6_mycuf"]
@@ -25,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qmcu0")
+texture = ExtResource("2_jg08h")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,55 +40,59 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
 
-[node name="Menu Options" type="VBoxContainer" parent="MarginContainer/HboxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-
-[node name="Start" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Quit")
-texture_normal = ExtResource("4_jwh32")
-texture_pressed = ExtResource("7_8x1rq")
-texture_focused = ExtResource("7_8x1rq")
-
-[node name="How to play" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
-layout_mode = 2
-texture_normal = ExtResource("5_kvv2f")
-texture_pressed = ExtResource("7_ha4mf")
-texture_focused = ExtResource("7_ha4mf")
-
-[node name="Quit" type="TextureButton" parent="MarginContainer/HboxContainer/Menu Options"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../Start")
-texture_normal = ExtResource("6_mycuf")
-texture_pressed = ExtResource("9_qr7tv")
-texture_focused = ExtResource("9_qr7tv")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HboxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Title" type="TextureRect" parent="MarginContainer/HboxContainer/MarginContainer"]
+[node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("3_deqfv")
 
-[connection signal="focus_entered" from="MarginContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_focus_entered"]
-[connection signal="mouse_entered" from="MarginContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_pressed"]
+[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Menu Options" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+texture_normal = ExtResource("4_jwh32")
+texture_pressed = ExtResource("7_8x1rq")
+texture_focused = ExtResource("7_8x1rq")
+
+[node name="How to play" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
+layout_mode = 2
+texture_normal = ExtResource("5_kvv2f")
+texture_pressed = ExtResource("7_ha4mf")
+texture_focused = ExtResource("7_ha4mf")
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+texture_normal = ExtResource("6_mycuf")
+texture_pressed = ExtResource("9_qr7tv")
+texture_focused = ExtResource("9_qr7tv")
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play" to="." method="_on_how_to_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HboxContainer/Menu Options/Quit" to="." method="_on_quit_pressed"]

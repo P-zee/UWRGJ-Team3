@@ -1,5 +1,9 @@
 extends Control
 
+@onready var start: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start"
+@onready var how_to_play: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play"
+@onready var quit: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/Quit"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,29 +27,29 @@ func _on_quit_pressed() -> void:
 
 
 func _on_start_mouse_entered() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/Start".grab_focus()
+	start.grab_focus()
 
 
 func _on_how_to_play_mouse_entered() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/How to play".grab_focus()
+	how_to_play.grab_focus()
 
 
 func _on_quit_mouse_entered() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/Quit".grab_focus()
+	quit.grab_focus()
 
 func _on_start_mouse_exited() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/Start".release_focus()
+	start.release_focus()
 	
 	
 func _unhandled_key_input(event):
 	if event.is_pressed():
-		if $"MarginContainer/HboxContainer/Menu Options/Start".has_focus() != true and $"MarginContainer/HboxContainer/Menu Options/How to play".has_focus() != true and $"MarginContainer/HboxContainer/Menu Options/Quit".has_focus() != true:
-			$"MarginContainer/HboxContainer/Menu Options/Start".grab_focus()
+		if start.has_focus() != true and how_to_play.has_focus() != true and quit.has_focus() != true:
+			start.grab_focus()
 
 
 func _on_how_to_play_mouse_exited() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/How to play".release_focus()
+	how_to_play.release_focus()
 
 
 func _on_quit_mouse_exited() -> void:
-	$"MarginContainer/HboxContainer/Menu Options/Quit".release_focus()
+	quit.release_focus()
