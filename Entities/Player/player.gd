@@ -11,7 +11,7 @@ var attacking : bool = false
 var respawning : bool = false
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var queen: CharacterBody2D = %Queen
-@onready var collision_shape_2d: CollisionShape2D = $MeleeHitbox/CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 const SPEED = 150.0
 
