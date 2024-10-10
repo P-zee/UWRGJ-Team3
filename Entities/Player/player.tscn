@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b4c5k1hv4io8d"]
+[gd_scene load_steps=48 format=3 uid="uid://b4c5k1hv4io8d"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_0d6js"]
 [ext_resource type="Script" path="res://Entities/health.gd" id="2_w8wwd"]
@@ -41,6 +41,9 @@
 [ext_resource type="Texture2D" uid="uid://xg788rie5myy" path="res://Sprites/Player/Normal/Walk frames/Back/Player (Normal) - walk back6.png" id="32_jivdi"]
 [ext_resource type="Texture2D" uid="uid://clkrl51p3niqe" path="res://Sprites/Player/Normal/Walk frames/Back/Player (Normal) - walk back7.png" id="33_28u71"]
 [ext_resource type="Texture2D" uid="uid://o3trvcij4myy" path="res://Sprites/Player/Normal/Walk frames/Back/Player (Normal) - walk back8.png" id="34_m38kg"]
+[ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://UI/bar-under.png" id="42_n0jsb"]
+[ext_resource type="Texture2D" uid="uid://2jfw4fkwium3" path="res://UI/bar-over.png" id="43_sh6p3"]
+[ext_resource type="Script" path="res://Environment/player_health_bar.gd" id="44_vmwjd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_accjw"]
 
@@ -262,6 +265,33 @@ one_shot = true
 sprite_frames = SubResource("SpriteFrames_ej60f")
 animation = &"HitRight"
 autoplay = "WalkDown"
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -24.0
+offset_right = 36.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("42_n0jsb")
+texture_over = ExtResource("43_sh6p3")
+texture_progress = ExtResource("42_n0jsb")
+tint_under = Color(0.505882, 0.137255, 0.121569, 1)
+tint_over = Color(0.843137, 0.298039, 0.184314, 1)
+tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
+script = ExtResource("44_vmwjd")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
