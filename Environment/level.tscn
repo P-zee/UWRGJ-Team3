@@ -20,10 +20,10 @@ script = ExtResource("1_5vrx4")
 [node name="BackgroundGreen" type="Polygon2D" parent="."]
 z_index = -10
 texture_repeat = 2
-position = Vector2(-5251, -2753)
-scale = Vector2(10, 10)
+position = Vector2(-22177, -12886)
+scale = Vector2(40, 40)
 texture = ExtResource("2_7bwr5")
-texture_scale = Vector2(5, 5)
+texture_scale = Vector2(20, 20)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 
 [node name="Player" parent="." instance=ExtResource("1_x2hm2")]
