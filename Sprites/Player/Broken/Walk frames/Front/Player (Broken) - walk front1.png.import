@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vs52i1wmrlgp"
-path="res://.godot/imported/Player (Broken) - walk front1.png-354d481f09bbd8315ef290cfeb2c46d4.ctex"
+path="res://.godot/imported/Player (Broken) - walk front1.png-4082b9b2eaadf82967361304e693bc27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Broken/Walk frames/Player (Broken) - walk front1.png"
-dest_files=["res://.godot/imported/Player (Broken) - walk front1.png-354d481f09bbd8315ef290cfeb2c46d4.ctex"]
+source_file="res://Sprites/Player/Broken/Walk frames/Front/Player (Broken) - walk front1.png"
+dest_files=["res://.godot/imported/Player (Broken) - walk front1.png-4082b9b2eaadf82967361304e693bc27.ctex"]
 
 [params]
 
