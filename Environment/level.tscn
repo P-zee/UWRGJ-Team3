@@ -20,10 +20,10 @@ script = ExtResource("1_5vrx4")
 [node name="BackgroundGreen" type="Polygon2D" parent="."]
 z_index = -10
 texture_repeat = 2
-position = Vector2(-5251, -2753)
-scale = Vector2(10, 10)
+position = Vector2(-22177, -12886)
+scale = Vector2(40, 40)
 texture = ExtResource("2_7bwr5")
-texture_scale = Vector2(5, 5)
+texture_scale = Vector2(20, 20)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 
 [node name="Player" parent="." instance=ExtResource("1_x2hm2")]
@@ -38,26 +38,7 @@ position = Vector2(611, 355)
 script = ExtResource("5_mdata")
 enemy_scene = ExtResource("2_s4nmo")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="TextureRect" type="TextureRect" parent="UI"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-texture = ExtResource("8_ncvhl")
-
-[node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
-layout_mode = 0
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
 offset_right = 120.0
 offset_bottom = 7.0
 value = 50.0
@@ -74,12 +55,12 @@ tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("9_bvavv")
 offset = Vector2(0, -30)
+smoothing = 0.5
 
-[node name="QueenHealthBar" type="TextureProgressBar" parent="UI"]
-layout_mode = 0
-offset_top = 129.0
+[node name="QueenHealthBar" type="TextureProgressBar" parent="."]
+offset_top = 10.0
 offset_right = 150.0
-offset_bottom = 138.0
+offset_bottom = 19.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 3
@@ -94,9 +75,22 @@ tint_over = Color(0.843137, 0.298039, 0.184314, 1)
 tint_progress = Color(0.792157, 0.486275, 0.172549, 1)
 script = ExtResource("10_ftign")
 offset = Vector2(0, -50)
+smoothing = 0.5
 
-[node name="Score2" type="RichTextLabel" parent="UI"]
-layout_mode = 1
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreBackdrop" type="TextureRect" parent="UI"]
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+texture = ExtResource("8_ncvhl")
+
+[node name="ScoreDisplay" type="RichTextLabel" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

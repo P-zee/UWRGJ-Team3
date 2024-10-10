@@ -37,13 +37,15 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	#print(direction)
 	#if direction:
-	if(!respawning && (queen.position-position).length()>1500):
+	if(!respawning && (queen.position-position).length()>700):
 		_on_health_died()
 	
 	if(respawning):
 		updateDirection((queen.position-position).normalized())
 		velocity = (queen.position-position).normalized() * SPEED*2
-		animatedSprite.play("Shelless")
+		animatedSprite.play("Shelless"+animationDirection)
+		#animatedSprite.play("WalkDown")
+		#print("Shelless"+animationDirection)
 		move_and_slide()
 		if((queen.position-position).length()<70):
 			health.heal(baseMaxHealth)
@@ -73,7 +75,7 @@ func _on_health_died() -> void:
 func updateDirection(direction : Vector2) -> void:
 	if(direction == Vector2.ZERO):
 		return
-	if(abs(direction.x)<.9):
+	if(abs(direction.x)<.75):
 		if(direction.y<0):
 			animationDirection = "Up"
 		else:

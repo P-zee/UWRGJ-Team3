@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b617nfrefgjhc"
-path="res://.godot/imported/Player (Shelless) - walk front1.png-9e72fa29f934b7c9b681997ba95d1337.ctex"
+path="res://.godot/imported/Player (Shelless) - walk front1.png-6f33046eb2f0f6a3b00b8a74d54d51c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Shelless/Walk frames/Player (Shelless) - walk front1.png"
-dest_files=["res://.godot/imported/Player (Shelless) - walk front1.png-9e72fa29f934b7c9b681997ba95d1337.ctex"]
+source_file="res://Sprites/Player/Shelless/Walk frames/Front/Player (Shelless) - walk front1.png"
+dest_files=["res://.godot/imported/Player (Shelless) - walk front1.png-6f33046eb2f0f6a3b00b8a74d54d51c0.ctex"]
 
 [params]
 
