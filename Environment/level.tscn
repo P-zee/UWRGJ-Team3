@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=23 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -16,7 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="14_wobt4"]
 [ext_resource type="PackedScene" uid="uid://b2yrjlexgqqvi" path="res://addons/audio-manager/AudioManager.tscn" id="15_x2i1p"]
 [ext_resource type="AudioStream" uid="uid://cunocf1xhfdmh" path="res://Audio/DM-CGS-05.wav" id="16_q6dal"]
-[ext_resource type="PackedScene" uid="uid://cy0ysfjv13jbg" path="res://GameOver/pause.tscn" id="17_2iriu"]
+[ext_resource type="PackedScene" path="res://GameOver/pause.tscn" id="17_2iriu"]
+[ext_resource type="AudioStream" uid="uid://cis1lwoc1cjh4" path="res://Audio/DM-CGS-21.wav" id="17_2txqe"]
+[ext_resource type="AudioStream" uid="uid://drpdgw2vy2vyv" path="res://Audio/DM-CGS-48.wav" id="19_uu4en"]
+[ext_resource type="AudioStream" uid="uid://7ina4stnrot3" path="res://Audio/DM-CGS-43.wav" id="20_00w2k"]
+[ext_resource type="AudioStream" uid="uid://jcmxwkstuvym" path="res://Audio/DM-CGS-22.wav" id="21_vi00a"]
+[ext_resource type="AudioStream" uid="uid://dpt8wwdxs6upv" path="res://Audio/DM-CGS-49.wav" id="22_8u313"]
 
 [node name="Level" type="Node2D"]
 process_mode = 1
@@ -34,6 +39,7 @@ polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 [node name="Player" parent="." instance=ExtResource("1_x2hm2")]
 unique_name_in_owner = true
 position = Vector2(540, 295)
+collision_mask = 1
 
 [node name="Queen" parent="." instance=ExtResource("4_1ljs2")]
 unique_name_in_owner = true
@@ -113,14 +119,10 @@ script = ExtResource("6_f05u4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_wobt4")
+volume_db = -80.0
 autoplay = true
 max_distance = 50000.0
 attenuation = 1.23114e-05
-
-[node name="AudioManager" parent="." instance=ExtResource("15_x2i1p")]
-unique_name_in_owner = true
-num_sfx_players = 20
-effects = Array[Resource]([ExtResource("16_q6dal")])
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
 
@@ -129,6 +131,12 @@ offset_left = -1.0
 offset_top = -1.0
 offset_right = -1.0
 offset_bottom = -1.0
+
+[node name="AudioManager" parent="." instance=ExtResource("15_x2i1p")]
+unique_name_in_owner = true
+num_sfx_players = 20
+music = Array[Resource]([ExtResource("14_wobt4")])
+effects = Array[Resource]([ExtResource("16_q6dal"), ExtResource("17_2txqe"), ExtResource("19_uu4en"), ExtResource("20_00w2k"), ExtResource("21_vi00a"), ExtResource("22_8u313")])
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]

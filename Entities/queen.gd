@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 # Crab's speed
-@export var speed : float  = 30
+@export var speed : float  = 50
 # If the crab is currently running after a piece of food
 var targetState : int =0 #0=targetting food, 1 = targetting player, 2 = moving randomly
 # If the crab is currently collecting a piece of food
@@ -63,6 +63,8 @@ func collectFood() -> void:
 	currentFood=null
 	targetState=2
 	getGoalPosition()
+	%AudioManager.play_fx("DM-CGS-21")
+	%AudioManager.play_fx("DM-CGS-48")
 	#print("co")
 	foodCollected.emit()
 	# Whatever Else
@@ -71,6 +73,7 @@ func hit(damage: int) -> void:
 	if(collectingFood):
 		return
 	tookDamage.emit(damage)
+	%AudioManager.play_fx("DM-CGS-49")
 	if(!gettingHit):
 		animatedSprite.animation_finished.connect(hitDone)
 		animatedSprite.play("Hit")
@@ -85,9 +88,17 @@ func hitDone() -> void:
 func getGoalPosition() -> void:
 	# Go to Food
 	#print()
-	if($"../Food" != null):
+	var foodNode=null
+	for N in $"..".get_children():
+		if N.name.substr(0,4) == "Food" or N.name.substr(0,5) == "@Node":
+			foodNode=N
+			break
+		else:
+			print(N.name)
+	
+	if(foodNode!= null):
 		targetState = 0
-		currentFood=$"../Food"
+		currentFood=foodNode
 		goalPosition=currentFood.position
 		#print(currentFood)
 	# Go to Player

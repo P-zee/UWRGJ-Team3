@@ -70,6 +70,7 @@ func _on_health_died() -> void:
 	died.emit()
 	respawning=true
 	collision_shape_2d.disabled=true
+	%AudioManager.play_fx("DM-CGS-43")
 	
 
 func updateDirection(direction : Vector2) -> void:
@@ -98,6 +99,7 @@ func _on_health_took_damage(damage: float) -> void:
 
 func take_enemy_damage(damage: float):
 	$Health.takeDamage(damage)
+	%AudioManager.play_fx("DM-CGS-05")
 	if(!respawning && !gettingHit):
 		animatedSprite.play("Hit" + animationDirection)
 		animatedSprite.animation_finished.connect(hitFinished)
@@ -123,7 +125,7 @@ func swing_melee(damage: float):
 		animatedSprite.animation_finished.connect(attackFinished)
 		#updateDirection((get_global_mouse_position() - position).normalized())
 		animatedSprite.play("Attack" + animationDirection)
-		%AudioManager.play_fx("DM-CGS-05")
+		%AudioManager.play_fx("DM-CGS-22")
 		attacking=true
 		#print("Attack"+animationDirection)
 		# Here, put logic for swing animation
