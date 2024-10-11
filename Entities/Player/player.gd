@@ -12,6 +12,7 @@ var respawning : bool = false
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var queen: CharacterBody2D = %Queen
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 const SPEED = 150.0
 
@@ -100,6 +101,7 @@ func _on_health_took_damage(damage: float) -> void:
 func take_enemy_damage(damage: float):
 	$Health.takeDamage(damage)
 	%AudioManager.play_fx("DM-CGS-05")
+	cpu_particles_2d.emitting = true
 	if(!respawning && !gettingHit):
 		animatedSprite.play("Hit" + animationDirection)
 		animatedSprite.animation_finished.connect(hitFinished)
