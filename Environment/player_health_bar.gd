@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	var center = Vector2(size.x/2, size.y/2)
 	self.position = player.position - center + offset
 	
-	var actualHeatlh = (player.health.health / maxHealth) * 100
+	var actualHeatlh = (player.health.health / player.health.maxHealth) * 100
 	
 	# The percent the player's max health is currently, out of the highest it could be.
 	self.size.x = (player.health.maxHealth / player.baseMaxHealth) * max_width
