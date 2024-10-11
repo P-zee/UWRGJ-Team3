@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="6_mycuf"]
 [ext_resource type="Texture2D" uid="uid://cps0x47fim18n" path="res://Menu/Start_pressed.png" id="7_8x1rq"]
 [ext_resource type="Texture2D" uid="uid://44kfqrpt7e3m" path="res://Menu/How_to_play_pressed.png" id="7_ha4mf"]
-[ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="9_drhwu"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="9_qr7tv"]
+[ext_resource type="AudioStream" uid="uid://me1j4jsi5hen" path="res://Audio/MainMenuSongGJ.wav" id="10_8q2el"]
 
 [node name="Menu3" type="Control"]
 layout_mode = 3
@@ -86,7 +86,7 @@ texture_pressed = ExtResource("9_qr7tv")
 texture_focused = ExtResource("9_qr7tv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_drhwu")
+stream = ExtResource("10_8q2el")
 autoplay = true
 max_distance = 50000.0
 attenuation = 1.23114e-05
