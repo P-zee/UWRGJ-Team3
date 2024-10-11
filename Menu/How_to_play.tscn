@@ -56,7 +56,7 @@ anchor_right = 0.5
 offset_left = -497.0
 offset_top = 58.0
 offset_right = 534.0
-offset_bottom = 507.0
+offset_bottom = 523.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0.505882, 0.137255, 0.121569, 1)
 theme_override_constants/line_separation = 8
@@ -65,7 +65,8 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]You Are tasked with defending your queen from waves of evil alien robots while she collects enough energy to leave the planet. Unfortunately, straying far away from the queen decreases your health, and even worse, you can accidentally harm the queen when attacking.
 
-WASD to Move. Space to Attack[/center]"
+WASD or Arrow Keys to Move. 
+Space to Attack[/center]"
 
 [connection signal="mouse_entered" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_exited"]
