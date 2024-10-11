@@ -1,7 +1,5 @@
 # Prox
 
-This is a simple readme file for our game that we haven't started yet.
-
 # Members
 
 - Peter Francis (rockretep), pnfrancis@wisc.edu
