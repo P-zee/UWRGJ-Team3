@@ -1,20 +1,13 @@
-# <Game Name>
+# Prox
 
 This is a simple readme file for our game that we haven't started yet.
 
-## About the game
+# Members
 
-This will be the one-sentence elevator pitch for our game.
-
-## Authors
-
-Please list your name here so we know you have figured out how to push a
-commit to the Github project.
-
-- Peter Francis (rockretep)
-- Cody Summerson (Tetratoric)
+- Peter Francis (rockretep), pnfrancis@wisc.edu
+- Cody Summerson (Tetratoric), csummerson@wisc.edu, Freshman, CS & Math
 - Peter Nelson
-- William (Liam) Halpin
-- Maxwell Wang (buh-h)
-- Ambrose Shu
-- Simeon Barfuss
+- William (Liam) Halpin, halpinliam@gmail.com, Senior, Computer Science
+- Maxwell Wang (buh-h), mwang597@wisc.edu, Sophomore, Computer Science
+- Ambrose Shu, ashu6@wisc.edu, Sophomore, Electrical Engineering + CS
+- Simeon Barfuss, Cmsehis7@gmail.com, Junior, Computer Science

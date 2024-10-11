@@ -155,9 +155,11 @@ func avoid_screen_edge():
 func wrap_screen():
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 func take_player_damage(damage: float):
 	$Health.takeDamage(damage)
+	cpu_particles_2d.emitting=true
 	gettingHit=true
 	animatedSprite.play("Hit"+animationDirection)
 	animatedSprite.animation_finished.connect(hitDone)

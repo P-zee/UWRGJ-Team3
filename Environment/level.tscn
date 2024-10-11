@@ -49,6 +49,7 @@ script = ExtResource("5_mdata")
 enemy_scene = ExtResource("2_s4nmo")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
+z_index = 6
 offset_right = 120.0
 offset_bottom = 7.0
 value = 50.0
@@ -68,6 +69,7 @@ offset = Vector2(0, -30)
 smoothing = 0.5
 
 [node name="QueenHealthBar" type="TextureProgressBar" parent="."]
+z_index = 4
 offset_top = 10.0
 offset_right = 150.0
 offset_bottom = 19.0
@@ -90,7 +92,7 @@ smoothing = 0.5
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ScoreBackdrop" type="TextureRect" parent="UI"]
-z_index = -1
+z_index = 10
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -101,6 +103,7 @@ grow_horizontal = 2
 texture = ExtResource("8_ncvhl")
 
 [node name="ScoreDisplay" type="RichTextLabel" parent="UI"]
+z_index = 11
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -17,7 +17,9 @@ var randomRange : float = 100
 var collectRange : float = 50
 var updateWalkRange : float = 2
 # Animation
+@onready var cpu_particles_2d_2: CPUParticles2D = $CPUParticles2D2
 
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
@@ -67,6 +69,7 @@ func collectFood() -> void:
 	getGoalPosition()
 	%AudioManager.play_fx("DM-CGS-21")
 	%AudioManager.play_fx("DM-CGS-48")
+	cpu_particles_2d_2.emitting = true
 	#print("co")
 	foodCollected.emit()
 	# Whatever Else
@@ -123,6 +126,8 @@ func _on_health_healed(damage: int) -> void:
 
 func take_player_damage(damage: float):
 	$Health.takeDamage(damage)
+	cpu_particles_2d.emitting=true
 
 func take_enemy_damage(damage: float):
+	cpu_particles_2d.emitting=true
 	$Health.takeDamage(damage)

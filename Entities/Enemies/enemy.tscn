@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkDown",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -136,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkLeft",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -165,7 +165,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkRight",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkUp",
-"speed": 6.0
+"speed": 12.0
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
@@ -237,7 +237,25 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rmb6a")
-animation = &"WalkUp"
+animation = &"WalkDown"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 200
+lifetime = 0.2
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(5, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 86.95
+initial_velocity_max = 86.95
+linear_accel_min = -56.52
+linear_accel_max = -44.93
+scale_amount_max = 3.0
+color = Color(0.505885, 0.4187, 0.53, 1)
 
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
 [connection signal="body_exited" from="flock_sensor" to="." method="_on_flock_sensor_body_exited"]
