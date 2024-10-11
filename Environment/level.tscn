@@ -137,7 +137,7 @@ music = Array[Resource]([ExtResource("14_wobt4")])
 effects = Array[Resource]([ExtResource("16_q6dal"), ExtResource("17_2txqe"), ExtResource("19_uu4en"), ExtResource("20_00w2k"), ExtResource("21_vi00a"), ExtResource("22_8u313")])
 
 [node name="Food" parent="." instance=ExtResource("23_vbrb2")]
-position = Vector2(627, 318)
+position = Vector2(815, 236)
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]
