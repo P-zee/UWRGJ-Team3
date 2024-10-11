@@ -4,7 +4,7 @@ This is a simple readme file for our game that we haven't started yet.
 
 # Members
 
-- Peter Francis (rockretep)
+- Peter Francis (rockretep), pnfrancis@wisc.edu
 - Cody Summerson (Tetratoric), csummerson@wisc.edu, Freshman, CS & Math
 - Peter Nelson
 - William (Liam) Halpin, halpinliam@gmail.com, Senior, Computer Science
