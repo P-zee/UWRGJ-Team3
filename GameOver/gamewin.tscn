@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dwc7eqoxiw1xr"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_og03k"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_d8x3x"]
+[ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_w0tjb"]
 [ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_shpbi"]
 [ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_1d48x"]
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="5_usopq"]
@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d8x3x")
+texture = ExtResource("2_w0tjb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,44 +38,47 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
-[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Buttons"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 50
-
-[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/Buttons/TextContainer"]
+[node name="Text" type="TextureRect" parent="MarginContainer/VBoxContainer/TextContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_08o4d")
 stretch_mode = 2
 
-[node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Retry" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("3_shpbi")
 texture_pressed = ExtResource("4_1d48x")
 texture_focused = ExtResource("4_1d48x")
 
-[node name="Quit" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("5_usopq")
 texture_pressed = ExtResource("6_f3kq4")
 texture_focused = ExtResource("6_f3kq4")
 
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
