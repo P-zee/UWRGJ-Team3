@@ -50,7 +50,7 @@ func _physics_process(_delta: float) -> void:
 		#print("Shelless"+animationDirection)
 		move_and_slide()
 		if((queen.position-position).length()<70):
-			health.heal(baseMaxHealth)
+			health.heal(baseMaxHealth*2)
 			collision_shape_2d.disabled=false
 			respawning=false
 		return
