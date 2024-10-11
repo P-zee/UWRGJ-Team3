@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=22 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://budo70qh7vqap" path="res://Entities/Enemies/enemy.tscn" id="2_s4nmo"]
 [ext_resource type="PackedScene" uid="uid://dlvg4lwqj0onb" path="res://Entities/queen.tscn" id="4_1ljs2"]
 [ext_resource type="Script" path="res://Entities/Enemies/enemy_spawner.gd" id="5_mdata"]
-[ext_resource type="Script" path="res://Environment/score.gd" id="6_f05u4"]
 [ext_resource type="FontFile" uid="uid://b4bqhoynjo107" path="res://UI/PressStart2P-Regular.ttf" id="6_y2qon"]
 [ext_resource type="Texture2D" uid="uid://do8rfc6cptvsm" path="res://UI/bar-under.png" id="7_rypkq"]
 [ext_resource type="Texture2D" uid="uid://b5205wxu7gfp" path="res://Menu/image.png" id="8_ncvhl"]
@@ -16,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="14_wobt4"]
 [ext_resource type="PackedScene" uid="uid://b2yrjlexgqqvi" path="res://addons/audio-manager/AudioManager.tscn" id="15_x2i1p"]
 [ext_resource type="AudioStream" uid="uid://cunocf1xhfdmh" path="res://Audio/DM-CGS-05.wav" id="16_q6dal"]
-[ext_resource type="PackedScene" uid="uid://cy0ysfjv13jbg" path="res://GameOver/pause.tscn" id="17_2iriu"]
+[ext_resource type="PackedScene" path="res://GameOver/pause.tscn" id="17_2iriu"]
 [ext_resource type="AudioStream" uid="uid://cis1lwoc1cjh4" path="res://Audio/DM-CGS-21.wav" id="17_2txqe"]
 [ext_resource type="AudioStream" uid="uid://drpdgw2vy2vyv" path="res://Audio/DM-CGS-48.wav" id="19_uu4en"]
 [ext_resource type="AudioStream" uid="uid://7ina4stnrot3" path="res://Audio/DM-CGS-43.wav" id="20_00w2k"]
@@ -115,7 +114,6 @@ theme_override_fonts/normal_font = ExtResource("6_y2qon")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]100[/center]"
-script = ExtResource("6_f05u4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_wobt4")

@@ -1,14 +1,19 @@
 extends Node2D
 
 # Number of food eaten
-var score = 0;
+var score = 20;
+@onready var score_display: RichTextLabel = $UI/ScoreDisplay
 
 # Number of food needed to win
-const SCORE_TO_WIN = 2000;
+const SCORE_TO_WIN = 20;
+#@onready var score_display: RichTextLabel = $UI/ScoreDisplay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if(score_display != null):
+		#score_display.add_text(str(score))
+		score_display.text= "[center]"+str(score)+"[/center]"
+	
 	
 
 
@@ -22,8 +27,13 @@ func _on_queen_died() -> void:
 
 
 func _on_queen_food_collected() -> void:
-	score += 100
+	#print(score_display==null)
+	score -= 1
+	if(score_display != null):
+		#score_display.add_text(str(score))
+		score_display.text= "[center]"+str(score)+"[/center]"
+	#print(score)
 	# Check if the score is enough for a win
-	if (score >= SCORE_TO_WIN):
+	if (score <= 0):
 		get_tree().change_scene_to_file("res://GameOver/gamewin.tscn")
 	

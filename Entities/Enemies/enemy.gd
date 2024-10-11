@@ -15,7 +15,10 @@ extends CharacterBody2D
 # min distance to ignore the player
 @export var player_ignore_distance: = 200.0
 
+var animationDirection : String = "Down"
+
 @export var enemy_damage = 1.0
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var food_drop_chance: float = 0.5
 @export var food_scene: PackedScene
@@ -32,6 +35,8 @@ var target: Vector2
 var flock = []
 var flock_size: int = 0
 
+var gettingHit : bool = false
+
 func _ready():
 	player = get_tree().current_scene.get_node("%Player")
 	queen = get_tree().current_scene.get_node("%Queen")
@@ -42,6 +47,7 @@ func _ready():
 	$flock_sensor/sensor_shape.shape.radius = view_distance
 	randomize()
 	velocity = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * max_speed
+
 
 func _on_flock_sensor_body_entered(body):
 	if self != body and body.is_in_group("Enemy"):
@@ -72,10 +78,12 @@ func _physics_process(_delta):
 	velocity = (velocity + acceleration).limit_length(max_speed)
 	if velocity.length() <= min_speed:
 		velocity = (velocity * min_speed).limit_length(max_speed)
-	
-	rotation = Vector2.RIGHT.angle_to(target_vector)
-	move_and_slide()
-	
+	updateDirection(velocity.normalized())
+	if(!gettingHit):
+		animatedSprite.play("Walk"+animationDirection)
+		move_and_slide()
+	$MeleeHitbox.rotation = Vector2.RIGHT.angle_to(target_vector)
+
 func update_target():
 	var distance_to_queen = global_position.distance_to(queen.global_position)
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -84,6 +92,20 @@ func update_target():
 		target = queen.global_position
 	else:
 		target = player.global_position
+
+func updateDirection(direction : Vector2) -> void:
+	if(direction == Vector2.ZERO):
+		return
+	if(abs(direction.x)<.75):
+		if(direction.y<0):
+			animationDirection = "Up"
+		else:
+			animationDirection = "Down"
+	else:
+		if(direction.x > 0):
+			animationDirection = "Right"
+		else:
+			animationDirection = "Left"
 
 func process_flock():
 	var cohesion_vector: = Vector2()
@@ -133,12 +155,17 @@ func avoid_screen_edge():
 func wrap_screen():
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
-	
-
 
 func take_player_damage(damage: float):
 	$Health.takeDamage(damage)
+	gettingHit=true
+	animatedSprite.play("Hit"+animationDirection)
+	animatedSprite.animation_finished.connect(hitDone)
 
+func hitDone():
+	animatedSprite.animation_finished.disconnect(hitDone)
+	gettingHit=false
+	animatedSprite.play("Walk"+animationDirection)
 
 # Damages any bodies that have the method take_enemy_damage
 # This is almost identical to the method in player.gd

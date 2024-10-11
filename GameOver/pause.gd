@@ -26,3 +26,20 @@ func _on_resume_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _unhandled_key_input(event):
+	if event.is_pressed():
+		if $"MarginContainer/HBoxContainer/Buttons/Resume".has_focus() != true and $"MarginContainer/HBoxContainer/Buttons/Quit".has_focus() != true:
+			$"MarginContainer/HBoxContainer/Buttons/Resume".grab_focus()
+
+func _on_resume_mouse_entered() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Resume".grab_focus()
+
+func _on_resume_mouse_exited() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Resume".release_focus()
+
+func _on_quit_mouse_entered() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Quit".grab_focus()
+
+func _on_quit_mouse_exited() -> void:
+	$"MarginContainer/HBoxContainer/Buttons/Quit".release_focus()

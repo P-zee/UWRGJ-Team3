@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://qfci1j0qndqp"]
+[gd_scene load_steps=9 format=3 uid="uid://qfci1j0qndqp"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_yb552"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_5v035"]
+[ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_qswyg"]
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="3_epfrk"]
 [ext_resource type="Texture2D" uid="uid://cfigw706b8f4p" path="res://GameOver/Retry.png" id="3_u0afi"]
 [ext_resource type="Texture2D" uid="uid://w5bba1pqjbn" path="res://GameOver/Retry_pressed.png" id="4_eppg4"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="4_qk4pc"]
 [ext_resource type="Texture2D" uid="uid://bsg41mevtbr65" path="res://GameOver/Game_over.png" id="7_oonnh"]
+[ext_resource type="AudioStream" uid="uid://me1j4jsi5hen" path="res://Audio/MainMenuSongGJ.wav" id="8_vihs3"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -24,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5v035")
+texture = ExtResource("2_qswyg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,44 +39,53 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
-[node name="TextContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Buttons"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 50
-
-[node name="Text" type="TextureRect" parent="MarginContainer/HBoxContainer/Buttons/TextContainer"]
+[node name="Text" type="TextureRect" parent="MarginContainer/VBoxContainer/TextContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_oonnh")
 stretch_mode = 2
 
-[node name="Retry" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Retry" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("3_u0afi")
 texture_pressed = ExtResource("4_eppg4")
 texture_focused = ExtResource("4_eppg4")
 
-[node name="Quit" type="TextureButton" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("3_epfrk")
 texture_pressed = ExtResource("4_qk4pc")
 texture_focused = ExtResource("4_qk4pc")
 
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vihs3")
+autoplay = true
+max_distance = 50000.0
+attenuation = 1.23114e-05
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
