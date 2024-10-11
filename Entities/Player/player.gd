@@ -45,11 +45,12 @@ func _physics_process(_delta: float) -> void:
 		updateDirection((queen.position-position).normalized())
 		velocity = (queen.position-position).normalized() * SPEED*2
 		animatedSprite.play("Shelless"+animationDirection)
+		collision_shape_2d.disabled=true
 		#animatedSprite.play("WalkDown")
 		#print("Shelless"+animationDirection)
 		move_and_slide()
 		if((queen.position-position).length()<70):
-			health.heal(baseMaxHealth)
+			health.heal(baseMaxHealth*2)
 			collision_shape_2d.disabled=false
 			respawning=false
 		return
@@ -68,10 +69,11 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_health_died() -> void:
-	died.emit()
-	respawning=true
-	collision_shape_2d.disabled=true
-	%AudioManager.play_fx("DM-CGS-43")
+	if(!respawning):
+		died.emit()
+		respawning=true
+		collision_shape_2d.disabled=true
+		%AudioManager.play_fx("DM-CGS-43")
 	
 
 func updateDirection(direction : Vector2) -> void:

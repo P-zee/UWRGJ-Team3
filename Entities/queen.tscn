@@ -159,7 +159,7 @@ autoplay = "Walk"
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = 10
 emitting = false
-amount = 1000
+amount = 400
 lifetime = 0.4
 one_shot = true
 emission_shape = 1
@@ -171,7 +171,28 @@ initial_velocity_min = 86.95
 initial_velocity_max = 86.95
 linear_accel_min = -56.52
 linear_accel_max = -44.93
+scale_amount_max = 5.0
 color = Color(0.79, 0.408167, 0, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 600
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(10, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+angular_velocity_max = 333.91
+orbit_velocity_min = 97.22
+orbit_velocity_max = 319.44
+linear_accel_min = -56.52
+linear_accel_max = -44.93
+scale_amount_max = 2.0
+color = Color(0, 0.79, 0.3555, 1)
 
 [connection signal="died" from="Health" to="." method="queenDied"]
 [connection signal="healed" from="Health" to="." method="_on_health_healed"]
