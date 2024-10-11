@@ -68,10 +68,11 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_health_died() -> void:
-	died.emit()
-	respawning=true
-	collision_shape_2d.disabled=true
-	%AudioManager.play_fx("DM-CGS-43")
+	if(respawning):
+		died.emit()
+		respawning=true
+		collision_shape_2d.disabled=true
+		%AudioManager.play_fx("DM-CGS-43")
 	
 
 func updateDirection(direction : Vector2) -> void:
