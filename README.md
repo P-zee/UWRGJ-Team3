@@ -9,5 +9,5 @@ This is a simple readme file for our game that we haven't started yet.
 - Peter Nelson
 - William (Liam) Halpin, halpinliam@gmail.com, Senior, Computer Science
 - Maxwell Wang (buh-h), mwang597@wisc.edu, Sophomore, Computer Science
-- Ambrose Shu
+- Ambrose Shu, ashu6@wisc.edu, Sophomore, Electrical Engineering + CS
 - Simeon Barfuss, Cmsehis7@gmail.com, Junior, Computer Science
