@@ -45,6 +45,7 @@ func _physics_process(_delta: float) -> void:
 		updateDirection((queen.position-position).normalized())
 		velocity = (queen.position-position).normalized() * SPEED*2
 		animatedSprite.play("Shelless"+animationDirection)
+		collision_shape_2d.disabled=true
 		#animatedSprite.play("WalkDown")
 		#print("Shelless"+animationDirection)
 		move_and_slide()
