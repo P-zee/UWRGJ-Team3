@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cg55s7fc3qhj7" path="res://Audio/BlinkingForest.wav" id="14_wobt4"]
 [ext_resource type="PackedScene" uid="uid://b2yrjlexgqqvi" path="res://addons/audio-manager/AudioManager.tscn" id="15_x2i1p"]
 [ext_resource type="AudioStream" uid="uid://cunocf1xhfdmh" path="res://Audio/DM-CGS-05.wav" id="16_q6dal"]
-[ext_resource type="PackedScene" path="res://GameOver/pause.tscn" id="17_2iriu"]
+[ext_resource type="PackedScene" uid="uid://cy0ysfjv13jbg" path="res://GameOver/pause.tscn" id="17_2iriu"]
 [ext_resource type="AudioStream" uid="uid://cis1lwoc1cjh4" path="res://Audio/DM-CGS-21.wav" id="17_2txqe"]
 [ext_resource type="AudioStream" uid="uid://drpdgw2vy2vyv" path="res://Audio/DM-CGS-48.wav" id="19_uu4en"]
 [ext_resource type="AudioStream" uid="uid://7ina4stnrot3" path="res://Audio/DM-CGS-43.wav" id="20_00w2k"]
