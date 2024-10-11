@@ -44,3 +44,6 @@ func _on_player_died() -> void:
 	score = score + 1
 	if score > max_score:
 		score = max_score
+	if(score_display != null):
+		#score_display.add_text(str(score))
+		score_display.text= "[center]"+str(score)+"[/center]"
