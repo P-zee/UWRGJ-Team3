@@ -1,20 +1,13 @@
-# <Game Name>
+# Prox
 
 This is a simple readme file for our game that we haven't started yet.
 
-## About the game
-
-This will be the one-sentence elevator pitch for our game.
-
-## Authors
-
-Please list your name here so we know you have figured out how to push a
-commit to the Github project.
+# Members
 
 - Peter Francis (rockretep)
 - Cody Summerson (Tetratoric)
 - Peter Nelson
-- William (Liam) Halpin
+- William (Liam) Halpin, halpinliam@gmail.com, Senior, Computer Science
 - Maxwell Wang (buh-h)
 - Ambrose Shu
 - Simeon Barfuss
