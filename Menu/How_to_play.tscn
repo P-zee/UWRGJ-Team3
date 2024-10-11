@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0u72fkh83wbr"]
+[gd_scene load_steps=7 format=3 uid="uid://c0u72fkh83wbr"]
 
 [ext_resource type="Script" path="res://Menu/how_to_play.gd" id="1_1qlpm"]
 [ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_3xsjg"]
 [ext_resource type="Texture2D" uid="uid://2xqgsdh77e0j" path="res://Menu/Back.png" id="3_iw475"]
 [ext_resource type="Texture2D" uid="uid://cev5fmicwb4y5" path="res://Menu/Back_pressed.png" id="4_pa18e"]
 [ext_resource type="FontFile" uid="uid://b4bqhoynjo107" path="res://UI/PressStart2P-Regular.ttf" id="5_ef3sf"]
+[ext_resource type="AudioStream" uid="uid://me1j4jsi5hen" path="res://Audio/MainMenuSongGJ.wav" id="6_25l37"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -67,6 +68,12 @@ text = "[center]You Are tasked with defending your queen from waves of evil alie
 
 WASD or Arrow Keys to Move. 
 Space to Attack[/center]"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_25l37")
+autoplay = true
+max_distance = 50000.0
+attenuation = 1.23114e-05
 
 [connection signal="mouse_entered" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_exited"]

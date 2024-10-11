@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctdr5w2tggf8k"]
+[gd_scene load_steps=22 format=3 uid="uid://ctdr5w2tggf8k"]
 
 [ext_resource type="Script" path="res://Environment/level.gd" id="1_5vrx4"]
 [ext_resource type="PackedScene" uid="uid://b4c5k1hv4io8d" path="res://Entities/Player/player.tscn" id="1_x2hm2"]
@@ -21,7 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://7ina4stnrot3" path="res://Audio/DM-CGS-43.wav" id="20_00w2k"]
 [ext_resource type="AudioStream" uid="uid://jcmxwkstuvym" path="res://Audio/DM-CGS-22.wav" id="21_vi00a"]
 [ext_resource type="AudioStream" uid="uid://dpt8wwdxs6upv" path="res://Audio/DM-CGS-49.wav" id="22_8u313"]
-[ext_resource type="PackedScene" uid="uid://noca4xg48uum" path="res://Entities/Food.tscn" id="23_vbrb2"]
 
 [node name="Level" type="Node2D"]
 process_mode = 1
@@ -135,9 +134,6 @@ unique_name_in_owner = true
 num_sfx_players = 20
 music = Array[Resource]([ExtResource("14_wobt4")])
 effects = Array[Resource]([ExtResource("16_q6dal"), ExtResource("17_2txqe"), ExtResource("19_uu4en"), ExtResource("20_00w2k"), ExtResource("21_vi00a"), ExtResource("22_8u313")])
-
-[node name="Food" parent="." instance=ExtResource("23_vbrb2")]
-position = Vector2(815, 236)
 
 [connection signal="died" from="Queen" to="." method="_on_queen_died"]
 [connection signal="foodCollected" from="Queen" to="." method="_on_queen_food_collected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwc7eqoxiw1xr"]
+[gd_scene load_steps=9 format=3 uid="uid://dwc7eqoxiw1xr"]
 
 [ext_resource type="Script" path="res://GameOver/gameover.gd" id="1_og03k"]
 [ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_w0tjb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c60t5xbb0oj6m" path="res://Menu/Quit.png" id="5_usopq"]
 [ext_resource type="Texture2D" uid="uid://7u21f0qj6l57" path="res://Menu/Quit_pressed.png" id="6_f3kq4"]
 [ext_resource type="Texture2D" uid="uid://da3v31tyit3wu" path="res://GameOver/You_win.png" id="7_08o4d"]
+[ext_resource type="AudioStream" uid="uid://me1j4jsi5hen" path="res://Audio/MainMenuSongGJ.wav" id="8_4mpyo"]
 
 [node name="GameWin" type="Control"]
 layout_mode = 3
@@ -75,6 +76,12 @@ layout_mode = 2
 texture_normal = ExtResource("5_usopq")
 texture_pressed = ExtResource("6_f3kq4")
 texture_focused = ExtResource("6_f3kq4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4mpyo")
+autoplay = true
+max_distance = 50000.0
+attenuation = 1.23114e-05
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry" to="." method="_on_retry_mouse_exited"]
