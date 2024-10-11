@@ -93,8 +93,8 @@ func getGoalPosition() -> void:
 		if N.name.substr(0,4) == "Food" or N.name.substr(0,5) == "@Node":
 			foodNode=N
 			break
-		else:
-			print(N.name)
+		#else:
+			#print(N.name)
 	
 	if(foodNode!= null):
 		targetState = 0
