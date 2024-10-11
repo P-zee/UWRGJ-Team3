@@ -68,7 +68,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_health_died() -> void:
-	if(respawning):
+	if(!respawning):
 		died.emit()
 		respawning=true
 		collision_shape_2d.disabled=true
