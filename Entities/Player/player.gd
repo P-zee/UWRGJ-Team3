@@ -55,11 +55,11 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	velocity = direction * SPEED
+	move_and_slide()
 	if(!attacking):
 		if(!gettingHit):
 			animatedSprite.play("Walk" + animationDirection)
 		updateDirection(direction)
-		move_and_slide()
 	
 	#else:
 	#	velocity = move_toward(velocity.x, 0, SPEED)

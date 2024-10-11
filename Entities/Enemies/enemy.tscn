@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkDown",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -136,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkLeft",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -165,7 +165,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkRight",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkUp",
-"speed": 6.0
+"speed": 12.0
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
@@ -237,7 +237,7 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rmb6a")
-animation = &"WalkUp"
+animation = &"WalkDown"
 
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
 [connection signal="body_exited" from="flock_sensor" to="." method="_on_flock_sensor_body_exited"]
