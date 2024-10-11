@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0u72fkh83wbr"]
+[gd_scene load_steps=6 format=3 uid="uid://c0u72fkh83wbr"]
 
 [ext_resource type="Script" path="res://Menu/how_to_play.gd" id="1_1qlpm"]
-[ext_resource type="Texture2D" uid="uid://4qwpnrcfv4pg" path="res://Menu/black_background.png" id="2_xsmfm"]
+[ext_resource type="Texture2D" uid="uid://d1j1etiq2gwcl" path="res://Menu/Background.png" id="2_3xsjg"]
 [ext_resource type="Texture2D" uid="uid://2xqgsdh77e0j" path="res://Menu/Back.png" id="3_iw475"]
 [ext_resource type="Texture2D" uid="uid://cev5fmicwb4y5" path="res://Menu/Back_pressed.png" id="4_pa18e"]
+[ext_resource type="FontFile" uid="uid://b4bqhoynjo107" path="res://UI/PressStart2P-Regular.ttf" id="5_ef3sf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -21,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xsmfm")
+texture = ExtResource("2_3xsjg")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1
@@ -46,6 +47,25 @@ layout_mode = 2
 texture_normal = ExtResource("3_iw475")
 texture_pressed = ExtResource("4_pa18e")
 texture_focused = ExtResource("4_pa18e")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -497.0
+offset_top = 58.0
+offset_right = 534.0
+offset_bottom = 507.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.505882, 0.137255, 0.121569, 1)
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("5_ef3sf")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]You Are tasked with defending your queen from waves of evil alien robots while she collects enough energy to leave the planet. Unfortunately, straying far away from the queen decreases your health, and even worse, you can accidentally harm the queen when attacking.
+
+WASD to Move. Space to Attack[/center]"
 
 [connection signal="mouse_entered" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRect/MarginContainer/VBoxContainer/Back" to="." method="_on_back_mouse_exited"]
