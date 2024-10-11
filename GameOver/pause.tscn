@@ -62,5 +62,10 @@ texture_normal = ExtResource("3_ckdiu")
 texture_pressed = ExtResource("4_wtftb")
 texture_focused = ExtResource("4_wtftb")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Resume" to="." method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
