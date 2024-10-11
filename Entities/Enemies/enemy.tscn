@@ -242,7 +242,7 @@ animation = &"WalkDown"
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = 1
 emitting = false
-amount = 600
+amount = 200
 lifetime = 0.2
 one_shot = true
 emission_shape = 1
@@ -254,6 +254,7 @@ initial_velocity_min = 86.95
 initial_velocity_max = 86.95
 linear_accel_min = -56.52
 linear_accel_max = -44.93
+scale_amount_max = 3.0
 color = Color(0.505885, 0.4187, 0.53, 1)
 
 [connection signal="body_entered" from="flock_sensor" to="." method="_on_flock_sensor_body_entered"]
