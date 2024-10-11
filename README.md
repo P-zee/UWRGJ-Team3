@@ -8,6 +8,6 @@ This is a simple readme file for our game that we haven't started yet.
 - Cody Summerson (Tetratoric)
 - Peter Nelson
 - William (Liam) Halpin, halpinliam@gmail.com, Senior, Computer Science
-- Maxwell Wang (buh-h)
+- Maxwell Wang (buh-h), mwang597@wisc.edu, Sophomore, Computer Science
 - Ambrose Shu
 - Simeon Barfuss
