@@ -17,6 +17,8 @@ var randomRange : float = 100
 var collectRange : float = 50
 var updateWalkRange : float = 2
 # Animation
+
+
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = %Player
 @onready var health: Node = $Health
