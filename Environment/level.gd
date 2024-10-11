@@ -1,7 +1,8 @@
 extends Node2D
 
 # Number of food eaten
-var score = 20;
+var max_score = 20
+var score = max_score;
 @onready var score_display: RichTextLabel = $UI/ScoreDisplay
 
 # Number of food needed to win
@@ -37,3 +38,9 @@ func _on_queen_food_collected() -> void:
 	if (score <= 0):
 		get_tree().change_scene_to_file("res://GameOver/gamewin.tscn")
 	
+
+
+func _on_player_died() -> void:
+	score = score + 1
+	if score > max_score:
+		score = max_score

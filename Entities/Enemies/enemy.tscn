@@ -229,7 +229,7 @@ collision_layer = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
-position = Vector2(11, 0)
+position = Vector2(10, 0)
 shape = SubResource("CircleShape2D_be6k8")
 
 [node name="MeleeCooldown" type="Timer" parent="."]
