@@ -4,9 +4,11 @@ extends Control
 @onready var how_to_play: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play"
 @onready var quit: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/Quit"
 
+	#@onready var start: TextureButton = $"MarginContainer/VBoxContainer/HboxContainer/Menu Options/Start"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	start.grab_focus()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -67,12 +67,14 @@ theme_override_constants/separation = 10
 
 [node name="Retry" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Quit")
 texture_normal = ExtResource("3_u0afi")
 texture_pressed = ExtResource("4_eppg4")
 texture_focused = ExtResource("4_eppg4")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Retry")
 texture_normal = ExtResource("3_epfrk")
 texture_pressed = ExtResource("4_qk4pc")
 texture_focused = ExtResource("4_qk4pc")

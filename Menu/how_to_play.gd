@@ -1,8 +1,11 @@
 extends Control
 
+@onready var back: TextureButton = $TextureRect/MarginContainer/VBoxContainer/Back
 
 # Called when the node enters the scene tree for the first time.
 
+func _ready() -> void:
+	back.grab_focus()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

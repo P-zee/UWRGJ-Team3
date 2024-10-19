@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy0ysfjv13jbg"]
+[gd_scene load_steps=6 format=3 uid="uid://cst2uaw6ulw8h"]
 
 [ext_resource type="Script" path="res://GameOver/pause.gd" id="1_13h7d"]
 [ext_resource type="Texture2D" uid="uid://di1w3cl5a2qv1" path="res://Menu/Resume.png" id="1_ggwdh"]

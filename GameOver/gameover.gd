@@ -1,9 +1,10 @@
 extends Control
 
+@onready var retry: TextureButton = $MarginContainer/VBoxContainer/HBoxContainer/Buttons/Retry
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	retry.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

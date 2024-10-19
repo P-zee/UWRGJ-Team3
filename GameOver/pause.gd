@@ -1,4 +1,5 @@
 extends Control
+@onready var resumeButton: TextureButton = $MarginContainer/HBoxContainer/Buttons/Resume
 
 func pause():
 	get_tree().paused = true
@@ -12,6 +13,7 @@ func resume():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.hide()
+	resumeButton.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

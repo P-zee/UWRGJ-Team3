@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_bottom = NodePath("MarginContainer/VBoxContainer/HboxContainer/Menu Options/How to play")
 script = ExtResource("1_30o5r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -68,18 +69,22 @@ theme_override_constants/separation = 10
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../How to play")
 texture_normal = ExtResource("4_jwh32")
 texture_pressed = ExtResource("7_8x1rq")
 texture_focused = ExtResource("7_8x1rq")
 
 [node name="How to play" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Quit")
 texture_normal = ExtResource("5_kvv2f")
 texture_pressed = ExtResource("7_ha4mf")
 texture_focused = ExtResource("7_ha4mf")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer/HboxContainer/Menu Options"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../How to play")
 focus_neighbor_bottom = NodePath("../Start")
 texture_normal = ExtResource("6_mycuf")
 texture_pressed = ExtResource("9_qr7tv")
