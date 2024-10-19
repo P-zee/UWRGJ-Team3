@@ -17,7 +17,8 @@ func _on_retry_pressed() -> void:
 
 # Called when quit button is pressed
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
+	#get_tree().quit()
 
 
 func _on_retry_mouse_entered() -> void:
